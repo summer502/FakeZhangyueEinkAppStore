@@ -11,6 +11,10 @@
 > 4. app的安装包下载地址（`http://other.d.ireader.com/group8/M00/7A/D1/wKgHkGOTLg-EPeA4AAAAALS7Yoo971970628.zip`）
 > 5. app的类别查询地址（`http://ebook.zhangyue.com/zybook3/app/app.php?ca=Eink_AppStore.Category`）
 
+| 设备   | 测试日期 |
+| :----- | :--: |
+| FaceNote N1s |  2023-02-20  |
+
 ## 1. 使用nginx搭建
 ## 2. 使用node.js搭建
 ## 3. 使用java搭建
