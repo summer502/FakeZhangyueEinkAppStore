@@ -1,0 +1,2 @@
+# FakeZhangyueEinkAppStore
+伪掌阅iReader应用商店
