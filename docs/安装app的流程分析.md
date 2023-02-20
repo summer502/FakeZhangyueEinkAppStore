@@ -96,11 +96,11 @@
 响应：Content-Type: application/zip  
 [http请求app安装包下载地址的抓包截图](./jietu/http%E8%AF%B7%E6%B1%82app%E5%AE%89%E8%A3%85%E5%8C%85%E4%B8%8B%E8%BD%BD%E5%9C%B0%E5%9D%80%E7%9A%84%E6%8A%93%E5%8C%85.png)  
 
-    掌阅应用商店的2个安装包见【[/server-nginx/nginx/EinkAppStore/downloads/zip/](/server-nginx/nginx/EinkAppStore/downloads/zip/)】中的：wKgHkGHFm-KEeeJdAAAAABDgnm4824219929.zip 掌阅精选、wKgHkGOTLg-EPeA4AAAAALS7Yoo971970628.zip 微信读书。  
+    掌阅应用商店的2个安装包见【[/server-nginx/nginx/EinkAppStore/downloads/zip/](/server-nginx/nginx/EinkAppStore/downloads/zip/)】中的：`wKgHkGHFm-KEeeJdAAAAABDgnm4824219929.zip` 掌阅精选、`wKgHkGOTLg-EPeA4AAAAALS7Yoo971970628.zip` 微信读书。  
     [http请求下载.zip文件解压后的目录结构截图](./jietu/http%E8%AF%B7%E6%B1%82%E4%B8%8B%E8%BD%BD.zip%E6%96%87%E4%BB%B6%E8%A7%A3%E5%8E%8B%E5%90%8E%E7%9A%84%E7%9B%AE%E5%BD%95%E7%BB%93%E6%9E%84.png)  
-    > 由目录结构可以看出，这是把apk文件直接压缩成zip文件。  
+    > 由“.zip”文件的目录结构可以看出，这是把apk文件直接压缩成zip文件。  
 
-3. 下载“.zip”文件完成后，请求查询app类别  
+3. 下载“.zip”文件完成后，又发起一次请求，查询app的类别Category  
 请求：GET  
 `http://ebook.zhangyue.com/zybook3/app/app.php?ca=Eink_AppStore.Category&zysid=&usr=&rgt=&p1=&pc=&p2=&p3=&p4=&p5=&p7=&p16=FaceNote+N1s&p33=com.zhangyue.iReader.Eink&zysid=&zysign=`  
 响应：Content-Type: application/json; charset=utf-8  
