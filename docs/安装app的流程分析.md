@@ -61,7 +61,9 @@
 
 2. 接着又发起一个http请求，获取app的图标"icon"  
 请求：GET  
-`http://bookbk.img.ireader.com/idc_1/m_1,w_300,h_400/13b9ed15/group61/M00/92/35/CmQUOV-_Vz6EFAJgAAAAABHkPGY809880571.png?v=bdhhb10L&t=CmQUOV-_Vz4.`  
+`http://bookbk.img.ireader.com/idc_1/m_1,w_300,h_400/13b9ed15/group61/M00/92/35/CmQUOV-_Vz6EFAJgAAAAABHkPGY809880571.png?v=bdhhb10L&t=CmQUOV-_Vz4.`    
+
+    掌阅应用商店的2个app图标见【[/server-nginx/nginx/EinkAppStore/downloads/icon/](/server-nginx/nginx/EinkAppStore/downloads/icon/)】中的：`CmQUOV-_Vz6EFAJgAAAAABHkPGY809880571.png` 掌阅精选、`CmQUOGEwpDqEX51AAAAAAAeM1VA414608802.png` 微信读书。  
 
 ### 第二步，点击下载按钮，进行安装应用
 1. 这时会发起一个http请求，详情数据查询，查询AppInfo数据  
@@ -96,7 +98,7 @@
 响应：Content-Type: application/zip  
 [http请求app安装包下载地址的抓包截图](./jietu/http%E8%AF%B7%E6%B1%82app%E5%AE%89%E8%A3%85%E5%8C%85%E4%B8%8B%E8%BD%BD%E5%9C%B0%E5%9D%80%E7%9A%84%E6%8A%93%E5%8C%85.png)  
 
-    掌阅应用商店的2个安装包见【[/server-nginx/nginx/EinkAppStore/downloads/zip/](/server-nginx/nginx/EinkAppStore/downloads/zip/)】中的：`wKgHkGHFm-KEeeJdAAAAABDgnm4824219929.zip` 掌阅精选、`wKgHkGOTLg-EPeA4AAAAALS7Yoo971970628.zip` 微信读书。  
+    掌阅应用商店的2个app安装包见【[/server-nginx/nginx/EinkAppStore/downloads/zip/](/server-nginx/nginx/EinkAppStore/downloads/zip/)】中的：`wKgHkGHFm-KEeeJdAAAAABDgnm4824219929.zip` 掌阅精选、`wKgHkGOTLg-EPeA4AAAAALS7Yoo971970628.zip` 微信读书。  
     [http请求下载.zip文件解压后的目录结构截图](./jietu/http%E8%AF%B7%E6%B1%82%E4%B8%8B%E8%BD%BD.zip%E6%96%87%E4%BB%B6%E8%A7%A3%E5%8E%8B%E5%90%8E%E7%9A%84%E7%9B%AE%E5%BD%95%E7%BB%93%E6%9E%84.png)  
     > 由“.zip”文件的目录结构可以看出，这是把apk文件直接压缩成zip文件。  
 
