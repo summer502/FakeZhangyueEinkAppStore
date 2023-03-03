@@ -1,0 +1,12 @@
+{
+  "id": 10004,
+  "name": "酷安",
+  "icon": "http://127.0.0.1:80/EinkAppStore/downloads/icon/com.coolapk.market.png",
+  "appVersion": "V13.0.2",
+  "appSize": "83.6MB",
+  "categoryId": 1,
+  "appName": "com.coolapk.market",
+  "appUrl": "http://127.0.0.1:80/EinkAppStore/downloads/zip/com.coolapk.market.zip",
+  "appDesc": "酷安网",
+  "explain": ""
+}

@@ -1,0 +1,12 @@
+{
+  "id": 10005,
+  "name": "京东读书",
+  "icon": "http://127.0.0.1:80/EinkAppStore/downloads/icon/com.jd.app.reader.png",
+  "appVersion": "V4.15.0",
+  "appSize": "54.73MB",
+  "categoryId": 1,
+  "appName": "com.jd.app.reader",
+  "appUrl": "http://127.0.0.1:80/EinkAppStore/downloads/zip/com.jd.app.reader.zip",
+  "appDesc": "北京京东世纪贸易有限公司",
+  "explain": ""
+}

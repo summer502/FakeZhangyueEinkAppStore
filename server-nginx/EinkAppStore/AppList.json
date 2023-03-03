@@ -1,0 +1,65 @@
+[
+  {
+    "id": 31,
+    "name": "掌阅精选",
+    "icon": "http://127.0.0.1:80/EinkAppStore/downloads/icon/CmQUOV-_Vz6EFAJgAAAAABHkPGY809880571.png",
+    "appVersion": "V20.1.2",
+    "appSize": "23.3MB",
+    "appName": "com.zhangyue.read.iReader.eink",
+    "appDesc": ""
+  },
+  {
+    "id": 2,
+    "name": "微信读书",
+    "icon": "http://127.0.0.1:80/EinkAppStore/downloads/icon/CmQUOGEwpDqEX51AAAAAAAeM1VA414608802.png",
+    "appVersion": "V1.9.1",
+    "appSize": "31.2MB",
+    "appName": "com.tencent.weread.eink",
+    "appDesc": ""
+  },
+  {
+    "id": 10001,
+    "name": "Microsoft Edge 浏览器",
+    "icon": "http://127.0.0.1:80/EinkAppStore/downloads/icon/com.microsoft.emmx.png",
+    "appVersion": "V107.0.1418.62",
+    "appSize": "112.7MB",
+    "appName": "com.microsoft.emmx",
+    "appDesc": "微软（中国）有限公司"
+  },
+  {
+    "id": 10002,
+    "name": "OneNote",
+    "icon": "http://127.0.0.1:80/EinkAppStore/downloads/icon/com.microsoft.office.onenote.png",
+    "appVersion": "V16.0.16026.20158",
+    "appSize": "76.3MB",
+    "appName": "com.microsoft.office.onenote",
+    "appDesc": "微软（中国）有限公司"
+  },
+  {
+    "id": 10003,
+    "name": "应用宝",
+    "icon": "http://127.0.0.1:80/EinkAppStore/downloads/icon/com.tencent.android.qqdownloader.png",
+    "appVersion": "V8.3.6",
+    "appSize": "14.11MB",
+    "appName": "com.tencent.android.qqdownloader",
+    "appDesc": "深圳市腾讯计算机系统有限公司"
+  },
+  {
+    "id": 10004,
+    "name": "酷安",
+    "icon": "http://127.0.0.1:80/EinkAppStore/downloads/icon/com.coolapk.market.png",
+    "appVersion": "V13.0.2",
+    "appSize": "83.6MB",
+    "appName": "com.coolapk.market",
+    "appDesc": "酷安网"
+  },
+  {
+    "id": 10005,
+    "name": "京东读书",
+    "icon": "http://127.0.0.1:80/EinkAppStore/downloads/icon/com.jd.app.reader.png",
+    "appVersion": "V4.15.0",
+    "appSize": "54.73MB",
+    "appName": "com.jd.app.reader",
+    "appDesc": "北京京东世纪贸易有限公司"
+  }
+]
