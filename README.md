@@ -19,6 +19,8 @@
 
 ## iReader接入私有的应用商店服务端
 > 有2种接入方式，建议选用“配置HTTP代理服务器”。
+> ![部署示意图](/docs/jietu/部署示意图.png)
+
 ### 1. 域名拦截，把“ebook.zhangyue.com”指向“服务端ip”  
 劫持对“ebook.zhangyue.com”的请求，转给私有应用商店服务端处理（服务端要使用80端口），比如在路由器上添加一条hosts，如图所示：![域名拦截ebook.zhangyue.com](./docs/jietu/在局域网内拦截域名.png)
 
