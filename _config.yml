@@ -1,14 +1,16 @@
 title: Welcome to FakeZhangyueEinkAppStore!
 author: summer502
 subtitle: "伪掌阅iReader应用商店，给设备安装第三方app"
-keywords: "FakeZhangyueEinkAppStore,掌阅iReader安装第三方app"
+keywords: "FakeZhangyueEinkAppStore, 掌阅iReader安装第三方app"
 
 url: ""
 baseurl: "/FakeZhangyueEinkAppStore"
 
+logo_name: FakeZhangyueEinkAppStore
+
 footer_only_homepage: true
 footer_url: "https://github.com/rahul-bothra"
-footer_text: "Theme by rahul-bothra"
+footer_text: "Jekyll, Theme by rahul-bothra"
 
 profile-picture: assets/profile.png
 favicon_location: assets/favicon.ico
