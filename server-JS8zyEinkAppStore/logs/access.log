@@ -1,3 +1,0 @@
-::ffff:192.168.99.120 --- [2023-03-03T15:07:37.295Z] "GET /EinkAppStore/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:109.0) Gecko/20100101 Firefox/110.0"
-::ffff:192.168.99.120 --- [2023-03-03T15:07:37.384Z] "GET /favicon.ico" "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:109.0) Gecko/20100101 Firefox/110.0"
-::ffff:192.168.99.120 --- [2023-03-03T15:07:44.107Z] "GET /EinkAppStore/AppList_AppInfo.json" "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:109.0) Gecko/20100101 Firefox/110.0"
