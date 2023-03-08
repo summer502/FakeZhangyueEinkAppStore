@@ -121,6 +121,11 @@ code {
     margin-bottom: 1em;
 }
 
+.fixed-bottom {
+    position: fixed;
+    bottom: 0;
+}
+
 // Mobile
 
 @media (max-width: 800px) {
