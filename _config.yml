@@ -1,9 +1,9 @@
 title: Welcome to FakeZhangyueEinkAppStore!
-author: pro-panda
-subtitle: The life of a frustrated engineer
+author: summer502
+subtitle: "伪掌阅iReader应用商店，给设备安装第三方app"
 
-url: "/"
-baseurl: "/"
+url: ""
+baseurl: "/FakeZhangyueEinkAppStore"
 
 footer_only_homepage: true
 footer_url: "https://github.com/rahul-bothra"
