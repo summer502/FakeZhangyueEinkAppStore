@@ -1,9 +1,9 @@
-title: Parchment
+title: Welcome to FakeZhangyueEinkAppStore!
 author: pro-panda
 subtitle: The life of a frustrated engineer
 
 url: "https://rahul-bothra.github.io"
-baseurl: "/parchment"
+baseurl: "/"
 
 footer_only_homepage: true
 footer_url: "https://github.com/rahul-bothra"
