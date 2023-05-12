@@ -1,22 +1,22 @@
-为了给掌阅iReader安装第三方app，通过抓包工具分析在iReader应用商店中安装app的操作流程，了解其应用商店下载app的运行机制，进而构建一个私有的应用商店服务端。  
+为了给掌阅 iReader 安装第三方 app，通过抓包工具分析在 iReader 应用商店中安装 app 的操作流程，了解其应用商店下载 app 的运行机制，进而构建一个私有的应用商店服务端。  
 
 设备型号：FaceNote N1s  
 抓包工具：Wireshark  
 
-> 通过抓包分析后，涉及有5个http请求：
-> 1. app的列表分页数据查询地址（`http://ebook.zhangyue.com/zybook3/app/app.php?ca=Eink_AppStore.AppList&page=1&size=7&categoryId=0`）
-> 2. app的图标icon下载地址（`http://bookbk.img.ireader.com/idc_1/m_1,w_300,h_400/13b9ed15/group61/M00/92/35/CmQUOV-_Vz6EFAJgAAAAABHkPGY809880571.png`）
-> 3. app的详情数据查询地址（`http://ebook.zhangyue.com/zybook3/app/app.php?ca=Eink_AppStore.AppInfo&appName=com.zhangyue.read.iReader.eink`）
-> 4. app的安装包下载地址（`http://other.d.ireader.com/group8/M00/7A/D1/wKgHkGOTLg-EPeA4AAAAALS7Yoo971970628.zip`）
-> 5. app的类别查询地址（`http://ebook.zhangyue.com/zybook3/app/app.php?ca=Eink_AppStore.Category`）
+> 通过抓包分析后，涉及有5个 http 请求：
+> 1. app 的列表分页数据查询地址（`http://ebook.zhangyue.com/zybook3/app/app.php?ca=Eink_AppStore.AppList&page=1&size=7&categoryId=0`）
+> 2. app 的图标 icon 下载地址（`http://bookbk.img.ireader.com/idc_1/m_1,w_300,h_400/13b9ed15/group61/M00/92/35/CmQUOV-_Vz6EFAJgAAAAABHkPGY809880571.png`）
+> 3. app 的详情数据查询地址（`http://ebook.zhangyue.com/zybook3/app/app.php?ca=Eink_AppStore.AppInfo&appName=com.zhangyue.read.iReader.eink`）
+> 4. app 的安装包下载地址（`http://other.d.ireader.com/group8/M00/7A/D1/wKgHkGOTLg-EPeA4AAAAALS7Yoo971970628.zip`）
+> 5. app 的类别查询地址（`http://ebook.zhangyue.com/zybook3/app/app.php?ca=Eink_AppStore.Category`）
 
-## N1s的应用商店  
+## N1s 的应用商店  
 - [应用商店入口位置](./jietu/N1s_AppStore_1.jpg)  
 - [应用商店中的应用列表](./jietu/N1s_AppStore_2.jpg)  
 
-## 安装app的操作流程
+## 安装 app 的操作流程
 ### 第一步，点击应用商店图标，进入应用商店页面
-1. 这时会发起一个http请求，分页数据查询，查询AppList数据  
+1. 这时会发起一个 http 请求，分页数据查询，查询 app 的列表 AppList 数据  
 请求：GET  
 `http://ebook.zhangyue.com/zybook3/app/app.php?ca=Eink_AppStore.AppList&page=1&size=7&categoryId=0&zysid=&usr=&rgt=7&p1=&pc=100&p2=&p3=&p4=&p5=&p7=&p16=FaceNote+N1s&p33=com.zhangyue.iReader.Eink&zysid=&zysign=`  
 响应：Content-Type: application/json; charset=utf-8  
@@ -59,14 +59,14 @@
     }
     ```
 
-2. 接着又发起一个http请求，获取app的图标"icon"  
+2. 接着又发起一个 http 请求，获取 app 的图标"icon"  
 请求：GET  
 `http://bookbk.img.ireader.com/idc_1/m_1,w_300,h_400/13b9ed15/group61/M00/92/35/CmQUOV-_Vz6EFAJgAAAAABHkPGY809880571.png?v=bdhhb10L&t=CmQUOV-_Vz4.`    
 
-    掌阅应用商店的2个app图标见【[/server-nginx/nginx/EinkAppStore/downloads/icon/](/server-nginx/nginx/EinkAppStore/downloads/icon/)】中的：`CmQUOV-_Vz6EFAJgAAAAABHkPGY809880571.png` 掌阅精选、`CmQUOGEwpDqEX51AAAAAAAeM1VA414608802.png` 微信读书。  
+    掌阅应用商店的2个官方 app 图标见目录【[/server-nginx8zyEinkAppStore/EinkAppStore/downloads/icon/](/server-nginx8zyEinkAppStore/EinkAppStore/downloads/icon/)】中的：`CmQUOV-_Vz6EFAJgAAAAABHkPGY809880571.png` 掌阅精选、`CmQUOGEwpDqEX51AAAAAAAeM1VA414608802.png` 微信读书。  
 
 ### 第二步，点击下载按钮，进行安装应用
-1. 这时会发起一个http请求，详情数据查询，查询AppInfo数据  
+1. 这时会发起一个 http 请求，详情数据查询，查询 app 的详情 AppInfo 数据  
 请求：GET  
 `http://ebook.zhangyue.com/zybook3/app/app.php?ca=Eink_AppStore.AppInfo&appName=com.tencent.weread.eink&zysid=&usr=&rgt=&p1=&pc=&p2=&p3=&p4=&p5=&p7=&p16=FaceNote+N1s&p33=com.zhangyue.iReader.Eink&zysid=&zysign=`  
 响应：Content-Type: application/json; charset=utf-8  
@@ -98,12 +98,12 @@
 响应：Content-Type: application/zip  
 [http请求app安装包下载地址的抓包截图](./jietu/http%E8%AF%B7%E6%B1%82app%E5%AE%89%E8%A3%85%E5%8C%85%E4%B8%8B%E8%BD%BD%E5%9C%B0%E5%9D%80%E7%9A%84%E6%8A%93%E5%8C%85.png)  
 
-    掌阅应用商店的2个app安装包见【[/server-nginx/nginx/EinkAppStore/downloads/zip/](/server-nginx/nginx/EinkAppStore/downloads/zip/)】中的：`wKgHkGHFm-KEeeJdAAAAABDgnm4824219929.zip` 掌阅精选、`wKgHkGOTLg-EPeA4AAAAALS7Yoo971970628.zip` 微信读书。  
+    掌阅应用商店的2个官方 app 安装包见目录【[/server-nginx8zyEinkAppStore/EinkAppStore/downloads/zip/](/server-nginx8zyEinkAppStore/EinkAppStore/downloads/zip/)】中的：`wKgHkGHFm-KEeeJdAAAAABDgnm4824219929.zip` 掌阅精选、`wKgHkGOTLg-EPeA4AAAAALS7Yoo971970628.zip` 微信读书。  
     
     [http请求下载.zip文件解压后的目录结构截图](./jietu/http%E8%AF%B7%E6%B1%82%E4%B8%8B%E8%BD%BD.zip%E6%96%87%E4%BB%B6%E8%A7%A3%E5%8E%8B%E5%90%8E%E7%9A%84%E7%9B%AE%E5%BD%95%E7%BB%93%E6%9E%84.png)  
     > 由“.zip”文件的目录结构可以看出，这是把apk文件直接压缩成zip文件。  
 
-3. 下载“.zip”文件完成后，又发起一次请求，查询app的类别Category  
+3. 下载“.zip”文件完成后，又发起一次请求，查询 app 的类别 Category 数据  
 请求：GET  
 `http://ebook.zhangyue.com/zybook3/app/app.php?ca=Eink_AppStore.Category&zysid=&usr=&rgt=&p1=&pc=&p2=&p3=&p4=&p5=&p7=&p16=FaceNote+N1s&p33=com.zhangyue.iReader.Eink&zysid=&zysign=`  
 响应：Content-Type: application/json; charset=utf-8  
