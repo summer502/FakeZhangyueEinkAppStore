@@ -20,13 +20,13 @@
     │ AppInfo_com.microsoft.office.onenote.json
     │ AppInfo_com.tencent.android.qqdownloader.json
     │ AppInfo_com.tencent.weread.eink.json
-    │ AppInfo_com.zhangyue.read.iReader.eink.json        <em><font size=1 color=green>这个json文件是app详情，文件名必须以“AppInfo_***"appName"***.json”格式命名</font></em>
-    │ AppList.json                                       <em><font size=1 color=green>这个json文件是app列表，里面每一个数组元素节点对应一个app详情，用来在设备应用商店页面中展示app列表的，文件名不能改动</font></em>
-    │ Category.json                                      <em><font size=1 color=green>这个json文件是app类别，对应"categoryId"字段值，文件名不能改动</font></em>
+    │ AppInfo_com.zhangyue.read.iReader.eink.json       <em><font size=1 color=green>这个json文件是app详情，文件名必须以“AppInfo_***"appName"***.json”格式命名</font></em>
+    │ AppList.json                                      <em><font size=1 color=green>这个json文件是app列表，里面每一个数组元素节点对应一个app详情，用来在设备应用商店页面中展示app列表的，文件名不能改动</font></em>
+    │ Category.json                                     <em><font size=1 color=green>这个json文件是app类别，对应"categoryId"字段值，文件名不能改动</font></em>
     │
     └─downloads
         ├─icon
-        │      CmQUOGEwpDqEX51AAAAAAAeM1VA414608802.png   <em><font size=1 color=green>这个是app图标，文件名必须与json文件中"icon"配置的一样</font></em>
+        │      CmQUOGEwpDqEX51AAAAAAAeM1VA414608802.png <em><font size=1 color=green>这个是app图标，文件名必须与json文件中"icon"配置的一样</font></em>
         │      CmQUOV-_Vz6EFAJgAAAAABHkPGY809880571.png
         │      com.android.chrome.png
         │      com.coolapk.market.png
@@ -36,7 +36,7 @@
         │      com.tencent.android.qqdownloader.png
         │
         └─zip
-               com.android.chrome.zip                     <em><font size=1 color=green>这个是app安装包，必须是zip格式文件（需要把apk文件压缩成zip文件），文件名必须与json文件中"appUrl"配置的一样</font></em>
+               com.android.chrome.zip                   <em><font size=1 color=green>这个是app安装包，必须是zip格式文件（需要把apk文件压缩成zip文件），文件名必须与json文件中"appUrl"配置的一样</font></em>
                com.coolapk.market.zip
                com.jd.app.reader.zip
                com.microsoft.emmx.zip
