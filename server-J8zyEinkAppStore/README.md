@@ -16,7 +16,9 @@
 
     2. 构建命令：  
         ```console
-        $ cd /FakeZhangyueEinkAppStore/server-J8zyEinkAppStore
+        $ # 进入代码目录
+        $ cd /FakeZhangyueEinkAppStore/server-J8zyEinkAppStore/source
+        $ # 编译
         $ ./mvnw install
         ```
 4. 启动项目  
