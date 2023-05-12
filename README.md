@@ -1,4 +1,6 @@
-# FakeZhangyueEinkAppStore 伪掌阅 iReader 应用商店
+# FakeZhangyueEinkAppStore 
+
+搭建一个伪掌阅 iReader 应用商店服务端，给设备安装第三方 app 应用。  
 
 > 根据对掌阅 iReader 应用商店下载 app 流程机制的分析，模拟搭建一个私有的应用商店服务端，给掌阅 iReader 安装第三方 app 应用。  
 > 掌阅 iReader 是用的 Android 系统，其实我们只要能安装上一个浏览器，比如 chrome、edge 等，就可以再通过浏览器来下载其他 app 安装。  

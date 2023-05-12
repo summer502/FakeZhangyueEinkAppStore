@@ -1,18 +1,20 @@
+基于 nginx 搭建一个 http 服务端  
+
 ## 步骤：  
 1. 下载 nginx  
 2. 把"EinkAppStore"、"conf"、"html"这3个目录直接复制覆盖到 nginx 目录下  
-![nginx 目录结构](/docs/jietu/nginx目录结构.png)
+    ![nginx 目录结构](/docs/jietu/nginx目录结构.png)
 3. 启动 nginx  
 4. 浏览器访问 "http://127.0.0.1:80" ，验证服务是否正常  
 5. 配置 ireader 设备接入此私有应用商店服务端  
 
-## 配置文件：  
+## 配置文件的说明：  
 - [nginx 的配置文件](/server-nginx8zyEinkAppStore/conf/)  
     <pre><code>目录"conf"的结构
     │ nginx-geo-ip-whitelist.conf
     │ nginx.conf                                        <em><font size=1 color=green>这个是配置文件，使用命令<code>"nginx -s reload"</code>重启nginx</font></em></code></pre>
 
-- [伪应用商店的配置文件](/server-nginx8zyEinkAppStore/EinkAppStore/)  
+- [伪应用商店的配置文件](/server-nginx8zyEinkAppStore/EinkAppStore/)    
     <pre><code>目录"EinkAppStore"的结构
     │ AppInfo_com.coolapk.market.json
     │ AppInfo_com.jd.app.reader.json
@@ -36,7 +38,7 @@
         │      com.tencent.android.qqdownloader.png
         │
         └─zip
-               com.android.chrome.zip                   <em><font size=1 color=green>这个是app安装包，必须是zip格式文件（需要把apk文件压缩成zip文件），文件名必须与json文件中"appUrl"配置的一样</font></em>
+               com.android.chrome.zip                   <em><font size=1 color=green>这个是app安装包，必须是zip格式（需要把apk文件压缩成zip文件），文件名必须与json文件中"appUrl"配置的一样</font></em>
                com.coolapk.market.zip
                com.jd.app.reader.zip
                com.microsoft.emmx.zip
@@ -44,9 +46,10 @@
                wKgHkGHFm-KEeeJdAAAAABDgnm4824219929.zip
                wKgHkGOTLg-EPeA4AAAAALS7Yoo971970628.zip</code></pre>
 
-- 一个 app 详情数据节点  
-在目录“EinkAppStore”下的“AppList.json”和“AppInfo_\*\*\*"appName"\*\*\*.json”文件中
+- app 详情数据节点的配置  
+在目录“EinkAppStore”下的“AppList.json”和“AppInfo_\*\*\*"appName"\*\*\*.json”文件中，每个 json 对象节点表示一个 app 的详情数据，这些 json 文件控制着应用商店服务端提供下载哪些 app，对每个 app 的添加、修改、删除等操作都需要编辑改动这些 json 文件。  
     ```json
+    这个json对象节点是"掌阅精选"的 app 详情数据节点
     {
       "id": 31,
       "name": "掌阅精选",
