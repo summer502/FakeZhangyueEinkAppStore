@@ -1,12 +1,27 @@
 {
-  "name": "JS8zyEinkAppStoreServer",
+  "name": "server-js8zyeinkappstore",
   "version": "1.0.0",
-  "description": "伪掌阅iReader应用商店服务端",
-  "main": "index.js",
+  "description": "基于Node.js的伪掌阅iReader应用商店服务端",
+  "private": true,
+  "main": "src/JS8zyEinkAppStoreServer.js",
   "scripts": {
+    "start": "node server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+  },
+  "devDependencies": {
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/summer502/FakeZhangyueEinkAppStore.git",
+    "directory": "server-JS8zyEinkAppStore/src"
+  },
+  "engines": {
+    "node": ">= 16.17.0",
+    "npm": ">= 8.15.0"
+  }
 }
