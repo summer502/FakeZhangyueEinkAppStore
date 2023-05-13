@@ -5,7 +5,7 @@ subtitle: 通过抓包工具分析在iReader应用商店中下载安装app的操
 tags: [EinkAppStore]
 ---
 
-为了给掌阅 iReader 等设备安装第三方 app，最近通过抓包工具分析了从 iReader 应用商店中下载安装 app 的操作流程，iReader 使用 http 协议传输数据，根据其主要几个接口数据，构建出一个私有的应用商店服务端，此私有服务端同时具有“http 代理服务器”的功能。  
+为了给掌阅 iReader 等设备安装第三方 app，最近通过抓包工具分析了从 iReader 应用商店中下载安装 app 的操作流程。iReader 使用 http 协议传输数据，根据其5个接口数据，构建出一个私有的应用商店服务端提供下载app，此私有服务端同时具有“http 代理服务器”的功能，会代理下载电子书等其他请求。  
 
 设备型号：FaceNote N1s  
 抓包工具：Wireshark  
