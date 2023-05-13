@@ -2,7 +2,7 @@
 layout: post
 title: 分析iReader下载安装app的操作流程
 subtitle: 通过抓包工具分析在iReader应用商店中下载安装app的操作流程，构建一个私有的应用商店服务端来安装第三方app。
-tags: [WIP]
+tags: [FakeAppStore]
 ---
 
 为了给掌阅 iReader 等设备安装第三方 app，最近通过抓包工具分析了从 iReader 应用商店中下载安装 app 的操作流程，iReader 使用 http 协议传输数据，根据其主要几个接口数据，构建出一个私有的应用商店服务端，此私有服务端同时具有“http 代理服务器”的功能。  
