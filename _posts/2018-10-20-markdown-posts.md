@@ -4,7 +4,7 @@ title: Or maybe Markdown
 subtitle: This post explains how you can write posts using Markdown.
 tags: [guide, markdown]
 lang: en
-author: 无
+author: 未知
 ---
 
 This post is written in markdown, but you can also write a [post using html]({% link _posts/2020-02-27-html-posts.html %}).
