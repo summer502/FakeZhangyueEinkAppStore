@@ -1,3 +1,7 @@
+![example workflow](https://github.com/summer502/FakeZhangyueEinkAppStore/actions/workflows/main.yml/badge.svg)
+![example branch parameter](https://github.com/summer502/FakeZhangyueEinkAppStore/actions/workflows/main.yml/badge.svg?branch=feature-1)
+![example event parameter](https://github.com/summer502/FakeZhangyueEinkAppStore/actions/workflows/main.yml/badge.svg?event=push)  
+
 # Parchment
 A clean, single column blog template built for jekyll
 
