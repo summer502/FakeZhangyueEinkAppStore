@@ -2,11 +2,6 @@
 layout: default
 title: 首页
 ---
-<!-- delete -->
-<div class="page-title" id="{{ page.title }}">
-    {{page.title}}----=-=-=-=-==-=-=-=
-</div>
-<!-- delete -->
 
 <div class="content">
 {% assign has_post = false %}
@@ -34,6 +29,10 @@ title: 首页
         <div class="subtitle">
             {{ post.subtitle }}
         </div>
+        <br>
+        {{ post.excerpt | remove: '<p>' | remove: '</p>' }}
+        <br>
+        <p>{{ post.excerpt }}</p>
     </div>
     {% if forloop.last == false %}
     <hr>
