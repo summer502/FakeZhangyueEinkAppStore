@@ -13,18 +13,15 @@ layout: default
             {% assign author = site.author %}
         {% endif %}
         {% if page.date %}
+        <p>{{ page.date | date_to_string }} - {{ author }}</p>
+        <br>
         <div class="">
             <span>{{author}} 于 {{ page.date | date: "%Y-%m-%d" }} 发布</span>
             {%- if site.baidutongji %}
-            <span>浏览量</span><span id="value_page_pv"></span>
+            <span>&nbsp;&nbsp;浏览量</span><span id="value_page_pv"></span>
             {% endif %}
         </div>
         {% endif %}
-        <br>
-        <p>{{ page.date | date_to_string }} - {{ author }}</p>
-        <br>
-        
-        <br>
         {% for tag in page.tags %}
         {% if page.tags.first == tag %}
             <b>[</b>
