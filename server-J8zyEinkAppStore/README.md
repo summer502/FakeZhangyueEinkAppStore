@@ -32,18 +32,18 @@
 ## 配置文件的说明：  
 - [伪应用商店的配置文件](/server-JS8zyEinkAppStore/EinkAppStore/)  
     <pre><code>目录"EinkAppStore"的结构
-    │ AppList_AppInfo.json                              <em><font size=1 color=green>这个json文件是app列表，里面每一个数组元素节点对应一个app详情，用来在设备应用商店页面中展示app列表和详情的，文件名不能改动</font></em>
-    │ Category.json                                     <em><font size=1 color=green>这个json文件是app类别，对应"categoryId"字段值，文件名不能改动</font></em>
+    │ AppList_AppInfo.json                              <em style="color:green">这个json文件是app列表，里面每一个数组元素节点对应一个app详情，用来在设备应用商店页面中展示app列表和详情的，文件名不能改动</em>
+    │ Category.json                                     <em style="color:green">这个json文件是app类别，对应"categoryId"字段值，文件名不能改动</em>
     │
     └─downloads
         ├─icon
-        │      CmQUOGEwpDqEX51AAAAAAAeM1VA414608802.png <em><font size=1 color=green>这个是app图标，文件名必须与json文件中"icon"配置的一样</font></em>
+        │      CmQUOGEwpDqEX51AAAAAAAeM1VA414608802.png <em style="color:green">这个是app图标，文件名必须与json文件中"icon"配置的一样</em>
         │      CmQUOV-_Vz6EFAJgAAAAABHkPGY809880571.png
         │      com.android.chrome.png
         │      com.jd.app.reader.png
         │
         └─zip
-               com.android.chrome.zip                   <em><font size=1 color=green>这个是app安装包，必须是zip格式（需要把apk文件压缩成zip文件），文件名必须与json文件中"appUrl"配置的一样</font></em>
+               com.android.chrome.zip                   <em style="color:green">这个是app安装包，必须是zip格式（需要把apk文件压缩成zip文件），文件名必须与json文件中"appUrl"配置的一样</em>
                com.jd.app.reader.zip
                wKgHkGHFm-KEeeJdAAAAABDgnm4824219929.zip
                wKgHkGOTLg-EPeA4AAAAALS7Yoo971970628.zip</code></pre>
