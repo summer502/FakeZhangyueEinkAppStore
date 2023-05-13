@@ -7,18 +7,23 @@ layout: default
 </div>
 <div class="content">
     <div class="page-subtitle">
+        {% if page.author %}
+            {% assign author = page.author %}
+        {% else %}
+            {% assign author = site.author %}
+        {% endif %}
         {% if page.date %}
         <div class="">
-            <span>{{site.author}} 于 {{ page.date | date: "%Y-%m-%d" }} 发布</span>
-            {%- if site.extCount %}
+            <span>{{author}} 于 {{ page.date | date: "%Y-%m-%d" }} 发布</span>
+            {%- if site.baidutongji %}
             <span>浏览量</span><span id="value_page_pv"></span>
             {% endif %}
         </div>
         {% endif %}
         <br>
-        <p>{{ page.date | date_to_string }} - {{ page.author }}</p>
+        <p>{{ page.date | date_to_string }} - {{ author }}</p>
         <br>
-        <b>{{ page.date | date: "%d %B %Y" }}</b>
+        
         <br>
         {% for tag in page.tags %}
         {% if page.tags.first == tag %}
