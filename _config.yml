@@ -21,12 +21,12 @@ navbar:
   # link: '链接'
   # absolute-link: '链接'
   # target: '_blank' 新页面打开
-  - name: 首页
-    link: "/"
-  - name: 标签
+  - name: "首页"
+    link: ""
+  - name: "标签"
     link: "tags"
-  - name: 搜索
-    link: /pages/search.html
+  - name: "Search"
+    link: "search"
   - name: "About"
     link: "about"
   - name: "Resume"
