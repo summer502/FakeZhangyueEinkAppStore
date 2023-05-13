@@ -5,8 +5,8 @@ permalink: /about
 ---
 
 <div class="page-title">
-            {{page.title}}
-        </div>
+            {{page.title}}----------------------------------========
+</div>
         <div class="content">
             
 <img class="profile-picture" src="{{site.baseurl}}/{{site.profile-picture}}">

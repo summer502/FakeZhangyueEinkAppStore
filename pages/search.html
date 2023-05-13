@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Search
+title: Search Post
 permalink: /search.html
 ---
 
@@ -12,12 +12,12 @@ permalink: /search.html
   </h1>
   <ul class="list-search">
     {%- for post in site.posts  %}
-    <li hidden>
-      <a href="{{site.baseurl}}{{ post.url }}">
-        <p class="title">{{ post.title }}</p>
-        <p class="content"></p>
-      </a>
-    </li>
+      <li hidden>
+        <a href="{{ site.baseurl }}{{ post.url }}">
+          <p class="title">{{ post.title }}</p>
+          <p class="content"></p>
+        </a>
+      </li>
     {%- endfor %}
   </ul>
 </div>
