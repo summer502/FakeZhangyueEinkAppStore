@@ -57,6 +57,10 @@ def show
   end
 end
 {% endhighlight %}
+![有帮助的截图]({{ site.url }}/assets/screenshot.jpg)
+你可以直接 [下载 PDF]({{ site.url }}/assets/mydoc.pdf).
+
+
 
 **Here is a horizontal rule,**
 
