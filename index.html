@@ -26,13 +26,14 @@ title: 首页
                 <b>]</b>
             {% endif %}
         </div>
+        {% if post.subtitle %}
+            {% assign post_subtitle = post.subtitle %}
+        {% else %}
+            {% assign post_subtitle = post.excerpt | remove: '<p>' | remove: '</p>' %}
+        {% endif %}
         <div class="subtitle">
-            {{ post.subtitle }}
+            {{ post_subtitle }}
         </div>
-        <br>
-        {{ post.excerpt | remove: '<p>' | remove: '</p>' }}
-        <br>
-        <p>{{ post.excerpt }}</p>
     </div>
     {% if forloop.last == false %}
     <hr>

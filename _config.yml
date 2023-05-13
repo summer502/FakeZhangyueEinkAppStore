@@ -36,7 +36,7 @@ navbar:
 # 底部
 footer_only_homepage: true
 footer_text: "Copyright © 2023 无"
-# Jekyll主题的作者信息
+# Jekyll主题的原作者
 jekyll_theme_author_text: "Jekyll Theme by rahul-bothra"
 jekyll_theme_author_url: "https://github.com/rahul-bothra/parchment"
 
