@@ -12,7 +12,7 @@ baseurl: "/FakeZhangyueEinkAppStore"
 # icon
 favicon_location: assets/image/favicon.ico
 # logo
-logo_name: "应用商店"
+logo_name: "Fake应用商店"
 logo_location: "assets/image/180x180.png"
 
 # 菜单
