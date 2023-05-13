@@ -4,6 +4,7 @@ title: Or maybe Markdown
 subtitle: This post explains how you can write posts using Markdown.
 tags: [guide, markdown]
 lang: en
+author: 无
 ---
 
 This post is written in markdown, but you can also write a [post using html]({% link _posts/2020-02-27-html-posts.html %}).
@@ -28,6 +29,7 @@ Posts should be named as `%yyyy-%mm-%dd-your-post-title-here.md`, and placed in 
 <span class="highlight-orange">highlighting</span>
 <span class="highlight-red">styles.</span>
 
+
 **Here is a bulleted list,**
  - This is a bullet point
  - This is another bullet point
@@ -37,6 +39,7 @@ Posts should be named as `%yyyy-%mm-%dd-your-post-title-here.md`, and placed in 
 1. You can also number things down.
 2. And so on.
 
+
 **Here is a sample code snippet in C,**
 ```C
 #include <stdio.h>
@@ -45,21 +48,6 @@ int main(void){
     printf("hello world!");
 }
 ```
-
-## 高亮代码片段
-Jekyll 自带语法高亮功能，你可以选择使用 Pygments 或 Rouge 两种工具中的一种。在文章中插入一段高亮代码非常容易，只需使用下面的 Liquid 标记：
-{% highlight ruby %}
-def show
-  @widget = Widget(params[:id])
-  respond_to do |format|
-    format.html # show.html.erb
-    format.json { render json: @widget }
-  end
-end
-{% endhighlight %}
-![有帮助的截图]({{ site.url }}/assets/screenshot.jpg)
-你可以直接 [下载 PDF]({{ site.url }}/assets/mydoc.pdf).
-
 
 
 **Here is a horizontal rule,**
@@ -71,6 +59,7 @@ end
 > There is no such thing as a hopeless situation. Every single 
 > circumstances of your life can change!
 
+
 **Here is a table,**
 
 ID  | Name   | Subject
@@ -79,9 +68,11 @@ ID  | Name   | Subject
 202 | Doe    | Chemistry
 203 | Samson | Biology
 
+
 **Here is a link,**<br>
 [GitHub Inc.](https://github.com) is a web-based hosting service
 for version control using Git
+
 
 **Here is an image,**<br>
 ![](../assets/autumn.jpg)
