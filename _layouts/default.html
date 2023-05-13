@@ -1,19 +1,25 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="{{ page.lang | default: site.lang }}">
 
-{% include head.html %}
+{%- assign buildAt = site.time | date: "%Y%m%d%H%M%S" -%}
+
+{% include html-head.html %}
+<!-- {% include html-body.html %} -->
 
 <body>
     <div class="container">
         {% include navbar.html %}
         
-        <div class="page-title">
+        {{ content }}
+        <!-- <div class="page-title">
             {{page.title}}
         </div>
         <div class="content">
             {{ content }}
-        </div>
+        </div> -->
         
         {% include footer.html %}
+        {% include testvalue.html %}
     </div>
 </body>
+</html>

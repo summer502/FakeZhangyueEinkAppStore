@@ -6,33 +6,39 @@
         {% assign title = site.title %}
         {% assign desc = site.subtitle %}
     {% endif %}
-    {% assign sitedir = site.url | append: site.baseurl | append: "/" %}
+    {% assign sitedir = site.baseurl | append: "/" %}
     {% assign favicon_location = sitedir | append: site.favicon_location %}
 
     <title>{{ title }}</title>
-
-    <meta charset="utf-8">
+    
+    <!-- meta -->
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="keywords" content="blog, {{ site.author }}, {{site.keywords}}, jekyll">
     <meta name="author" content="{{ site.author }}">
-
     <meta name="description" content="{{ desc }}">
-    <link href='https://fonts.googleapis.com/css?family=Inconsolata:400,700' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" href="{{ sitedir }}css/main.css">
-    <link rel="icon" type="image/ico" href="{{ favicon_location }}">
-    <link rel="shortcut-icon" type="image/ico" href="{{ favicon_location }}">
-
+    <meta name="keywords" content="{{site.keywords}}, {{ site.author }}, blog, jekyll">
+    <!--页面会在30秒后刷新-->
+    <meta http-equiv="refresh" content="30">
+    <!--页面会在20秒后跳转到百度-->
+    <meta http-equiv="refresh" content="20;url=https://www.baidu.com">
     <!-- For Facebook -->
     <meta property="og:title" content="{{ title }}" />
     <meta property="og:image" itemprop="image" content="{{ favicon_location }}" />
     <meta property="og:description" content="{{ desc }}" />
-
     <!-- For Twitter -->
     <meta name="twitter:card" content="summary" />
     <meta name="twitter:title" content="{{ title }}" />
     <meta name="twitter:description" content="{{ desc }}" />
     <meta name="twitter:image" content="{{ favicon_location }}" />
     
-    <script type="text/javascript" src="js/jquery.min.js"></script>
-    <script type="text/javascript" src="{{ sitedir }}js/main.js"></script>
+    <!-- link -->
+    <link rel="icon" type="image/ico" href="{{ favicon_location }}">
+    <link rel="shortcut-icon" type="image/ico" href="{{ favicon_location }}">
+
+    <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Inconsolata:400,700' type='text/css'>
+    <link rel="stylesheet" href="{{ sitedir }}css/main.css" type='text/css'>
+
+    <!-- script -->
+    <script type="text/javascript" src="assets/js/jquery.min.js"></script>
+    <script type="text/javascript" src="{{ sitedir }}assets/js/main.js"></script>
 </head>

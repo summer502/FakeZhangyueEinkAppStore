@@ -3,6 +3,11 @@ layout: default
 title: About Me
 ---
 
+<div class="page-title">
+            {{page.title}}
+        </div>
+        <div class="content">
+            
 <img class="profile-picture" src="{{site.baseurl}}/{{site.profile-picture}}">
 
 I'm Dilbert. I've been working as a Software Engineer for over 30 years. I like to innovate to solve challenging problems using technology. I work with a great Engineering team, but we have a good-for-nothing and clueless manager, who can be replaced with a monkey and the change would be for the better.
@@ -23,3 +28,5 @@ Here are a few things I've learned over the years,
 
 ### Contact Me
 No thanks, I have enough problems of my own to deal with.
+
+        </div>

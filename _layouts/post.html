@@ -2,18 +2,37 @@
 layout: default
 ---
 
-<div class="page-subtitle">
-    {% for tag in page.tags %}
+<div class="page-title" id="{{ page.title }}">
+    {{page.title}}
+</div>
+<div class="content">
+    <div class="page-subtitle">
+        {% if page.date %}
+        <div class="">
+            <span>{{site.author}} 于 {{ page.date | date: "%Y-%m-%d" }} 发布</span>
+            {%- if site.extCount %}
+            <span>浏览量</span><span id="value_page_pv"></span>
+            {% endif %}
+        </div>
+        {% endif %}
+        <br>
+        <p>{{ page.date | date_to_string }} - {{ page.author }}</p>
+        <br>
+        <b>{{ page.date | date: "%d %B %Y" }}</b>
+        <br>
+        {% for tag in page.tags %}
         {% if page.tags.first == tag %}
             <b>[</b>
-        {% endif %}
-        <a href="{{ site.baseurl }}/tags/#{{ tag }}" title="{{ tag }}">{{ tag }}</a>
-        {% if page.tags.last == tag %}
-            <b>]</b>
-        {% else %}
-            ,
-        {% endif %}
-    {% endfor %}
-</div>
+            {% endif %}
+            <a href="{{ site.baseurl }}/tags/#{{ tag }}" title="{{ tag }}">{{ tag }}</a>
+            {% if page.tags.last == tag %}
+                <b>]</b>
+            {% else %}
+                ,
+            {% endif %}
+        {% endfor %}
+    </div>
+    <hr>
 
-{{content}}
+    {{content}}
+</div>

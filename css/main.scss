@@ -48,7 +48,6 @@ code {
 }
 
 // Navbar
-
 .navbar {
     ul {
         display: inline-block;
@@ -70,6 +69,10 @@ code {
 	
     .logoname {
         word-wrap: break-word;
+    }
+    .logoname > img {
+        width: 50;
+        height: 50;
     }
 }
 

@@ -1,27 +1,54 @@
+lang: zh-CN
+
+# SEO相关信息
 title: Welcome to FakeZhangyueEinkAppStore!
 author: summer502
-subtitle: "伪掌阅iReader应用商店，给设备安装第三方app"
-keywords: "FakeZhangyueEinkAppStore, 掌阅iReader安装第三方app"
+author_home_url: "https://github.com/summer502/FakeZhangyueEinkAppStore"
+subtitle: "搭建一个伪掌阅iReader应用商店服务端来给设备安装第三方app应用"
+keywords: "掌阅, iReader, FaceNote"
 
-url: ""
+#
 baseurl: "/FakeZhangyueEinkAppStore"
+# icon
+favicon_location: assets/image/favicon.ico
+# logo
+logo_name: "FakeZhangyueEinkAppStore"
+logo_location: "assets/image/180x180.png"
 
-logo_name: FakeZhangyueEinkAppStore
+# 菜单
+navbar:
+  # name: '名称' 
+  # link: '链接'
+  # absolute-link: '链接'
+  # target: '_blank' 新页面打开
+  - name: 首页
+    link: "/"
+  - name: 标签
+    link: "tags"
+  - name: 搜索
+    link: /pages/search.html
+  - name: "About"
+    link: "about"
+  - name: "Resume"
+    absolute-link: "https://rahul-bothra.github.io/CV.pdf"
+    target: '_blank'
 
+# 底部
 footer_only_homepage: true
-footer_url: "https://github.com/rahul-bothra/parchment"
-footer_text: "Jekyll, Theme by rahul-bothra"
+footer_text: "Copyright © 2023 无"
+# Jekyll主题的作者信息
+jekyll_theme_author_text: "Jekyll Theme by rahul-bothra"
+jekyll_theme_author_url: "https://github.com/rahul-bothra/parchment"
 
-profile-picture: assets/profile.png
-favicon_location: assets/favicon.ico
-
+#
 permalink: /:year-:month-:day-:title/
 sass:
     style: compressed
     sass_dir: css
 
-navbar:
- - name: "About"
-   link: "about"
- - name: "Resume"
-   absolute-link: "https://rahul-bothra.github.io/CV.pdf"
+# 百度统计
+baidutongji: false
+
+# 其他页面的配置
+profile-picture: assets/profile.png
+
