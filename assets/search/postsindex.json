@@ -1,0 +1,30 @@
+---
+---
+{% assign version = 'v1.0.0' %}
+
+{
+    "version":"{{ version }}",
+    "buildAt": "{{ buildAt }}",
+    "total_posts": "{{ paginator.total_posts }}",
+    "posts": [
+    {%- for post in site.posts %}
+        {% assign title = post.title | escape %}
+        {% assign description = post.content | strip_html | strip_newlines | replace: " ", "" | replace: "	", "" | truncate: 120 | escape %}
+        {% assign content = post.content | strip_html | strip_newlines | strip | replace: " ", "" | replace: "	", "" %}
+        {% assign date = post.date | date_to_rfc822 %}
+        {% assign url = post.url %}
+
+        {% capture a_post %}
+        {
+            "title": "{{ title }}",
+            "description": "{{ description }}",
+            "content": "{{ content }}",
+            "date": "{{ date }}",
+            "url": "{{ url }}"
+        }
+        {% endcapture %}
+        
+        {{ a_post }}
+    {%- endfor %}
+    ]
+}

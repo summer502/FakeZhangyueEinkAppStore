@@ -9,8 +9,6 @@
     {% assign sitedir = site.baseurl | append: "/" %}
     {% assign favicon_location = sitedir | append: site.favicon_location %}
 
-    <title>{{ title }}</title>
-    
     <!-- meta -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -20,7 +18,10 @@
     <!--页面会在30秒后刷新-->
     <!-- <meta http-equiv="refresh" content="30"> -->
     <!--页面会在20秒后跳转到百度-->
-   <!--   <meta http-equiv="refresh" content="20;url=https://www.baidu.com">  -->
+    <!-- <meta http-equiv="refresh" content="20;url=https://www.baidu.com"> -->
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <!-- For Facebook -->
     <meta property="og:title" content="{{ title }}" />
     <meta property="og:image" itemprop="image" content="{{ favicon_location }}" />
@@ -31,6 +32,8 @@
     <meta name="twitter:description" content="{{ desc }}" />
     <meta name="twitter:image" content="{{ favicon_location }}" />
     
+    <title>{{ title }}</title>
+    
     <!-- link -->
     <link rel="icon" type="image/ico" href="{{ favicon_location }}">
     <link rel="shortcut-icon" type="image/ico" href="{{ favicon_location }}">
@@ -40,9 +43,35 @@
     <link rel="stylesheet" href="{{ sitedir }}/assets/css/searchpost.css?t={{ buildAt }}" type='text/css'>
 
     <!-- script -->
-    {% include baidutongji.html %}
+    <script>
+        window.myblog = {
+            siteUrl: "{{ site.url }}",
+            baseurl: '{{ site.baseurl }}',
+            buildAt: '{{ buildAt }}',
+            title: '{{ site.title }}',
+            author: '{{ site.author }}',
+            choose: false,
+            init: function (flag) {
+                if (flag && flag === 'true') {
+                    console.log(this);
+                }
+                else if (flag && flag === 'false') {
+                    console.log(this);
+                }
+                else {
+                    console.log(this);
+                }
+                var localStorage_key_prefix = 'blog_'+ this.author + '_' + this.baseurl +'_'+this.buildAt+ '_';
 
+            }
+        };
+        myblog.init()
+    </script>
+    {% if site.baidutongji %}
+        {% include baidutongji.html %}
+    {% endif %}
     <script type="text/javascript" src="assets/js/jquery.min.js?t={{ buildAt }}"></script>
+    <script type="text/javascript" src="assets/js/blog-common.js?t={{ buildAt }}"></script>
     <script type="text/javascript" src="assets/js/main.js?t={{ buildAt }}"></script>
-    <script type="text/javascript" src="assets/js/searchpost.js?t={{ buildAt }}"></script>
+    <script type="text/javascript" src="assets/js/blog-searchpost.js?t={{ buildAt }}"></script>
 </head>

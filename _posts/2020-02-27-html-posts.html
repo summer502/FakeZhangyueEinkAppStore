@@ -24,3 +24,788 @@ end
 你可以直接 [下载 PDF]({{ site.url }}/assets/mydoc.pdf).
 
 
+
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="referrer" content="origin-when-cross-origin" />
+    <meta name="description" content="1、HTML的定义 HTML指的是超文本标记语言（Hyper Text Markup Language)，它是用来描述网页的一种语言。 HTML不是一种编程语言，而是一种标记语言（markup language）。 2、HTML的基本结构 &amp;lt;!DOCTYPE html&amp;gt; &amp;lt;html" />
+    <meta property="og:description" content="1、HTML的定义 HTML指的是超文本标记语言（Hyper Text Markup Language)，它是用来描述网页的一种语言。 HTML不是一种编程语言，而是一种标记语言（markup language）。 2、HTML的基本结构 &amp;lt;!DOCTYPE html&amp;gt; &amp;lt;html" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Part.1 HTML基础 - ALL|ONE - 博客园</title>
+    <link id="favicon" rel="shortcut icon" href="//common.cnblogs.com/favicon.svg" type="image/svg+xml" />
+    
+    <link rel="stylesheet" href="/css/blog-common.min.css?v=-TytV_RFMTxA-_30mBwzKHwytUd14zKOTnC06zwidDE" />
+    
+
+    <link id="MainCss" rel="stylesheet" href="/skins/coffee/bundle-coffee.min.css?v=I3rxh6a8gMrPrxZsKUeivcSQGSuJ7yJMxMP_SG2nOqU" />
+        <link id="highlighter-theme-cnblogs" type="text/css" rel="stylesheet" href="/css/hljs/cnblogs.css?v=5J1NDtbnnIr2Rc2SdhEMlMxD4l9Eydj88B31E7_NhS4" />
+    
+    
+    <link id="mobile-style" media="only screen and (max-width: 767px)" type="text/css" rel="stylesheet" href="/skins/coffee/bundle-coffee-mobile.min.css?v=kHzW89SP3DBdPtV0BZSh9-E7txv3LsK5Brp9i3dE1yM" />
+    
+    <link type="application/rss+xml" rel="alternate" href="https://www.cnblogs.com/value410781/rss" />
+    <link type="application/rsd+xml" rel="EditURI" href="https://www.cnblogs.com/value410781/rsd.xml" />
+    <link type="application/wlwmanifest+xml" rel="wlwmanifest" href="https://www.cnblogs.com/value410781/wlwmanifest.xml" />
+    <script>
+        var currentBlogId = 464116;
+        var currentBlogApp = 'value410781';
+        var isLogined = false;
+        var isBlogOwner = false;
+        var skinName = 'coffee';
+        var visitorUserId = '';
+        var hasCustomScript = false;
+        try {
+            if (hasCustomScript && document.referrer && document.referrer.indexOf('baidu.com') >= 0) {
+                Object.defineProperty(document, 'referrer', { value: '' });
+                Object.defineProperty(Document.prototype, 'referrer', { get: function () { return ''; } });
+            }
+        } catch (error) { }
+        window.cb_enable_mathjax = false;
+        window.mathEngine = 0;
+        window.codeHighlightEngine = 1;
+        window.enableCodeLineNumber = false;
+        window.codeHighlightTheme = 'cnblogs';
+        window.darkModeCodeHighlightTheme = 'vs2015';
+        window.isDarkCodeHighlightTheme = false;
+        window.isDarkModeCodeHighlightThemeDark = true;
+        window.isDisableCodeHighlighter = false;
+        window.enableCodeThemeTypeFollowSystem = false;
+        window.enableMacStyleCodeBlock = false
+    </script>
+        <script>
+            var currentPostDateAdded = '2023-05-08 11:38';
+        </script>
+    <script src="https://common.cnblogs.com/scripts/jquery-2.2.0.min.js"></script>
+    <script src="/js/blog-common.min.js?v=8mq0yss7-px_5IF0CyywCj2WM1Seibgz2MvzXc2pWqY"></script>
+    
+
+    
+</head>
+<body class="skin-coffee has-navbar">
+    <a name="top"></a>
+    <div id="top_nav" class="navbar forpc">
+        <nav id="nav_main" class="navbar-main">
+            <ul id="nav_left" class="navbar-list navbar-left">
+                <li class="navbar-branding">
+                    <a href="https://www.cnblogs.com/" title="开发者的网上家园" role="banner">
+                            <img src="//common.cnblogs.com/logo.svg" alt="博客园Logo" />
+                    </a>
+                </li>
+                <li>
+                    <a href="/" onclick="countClicks('skin-navbar-sitehome')">首页</a>
+                </li>
+                <li>
+                    <a href="https://news.cnblogs.com/" onclick="countClicks('nav', 'skin-navbar-news')">新闻</a>
+                </li>
+                <li>
+                    <a href="https://q.cnblogs.com/" onclick="countClicks('nav', 'skin-navbar-q')">博问</a>
+                </li>
+                    <li><a href="https://www.cnblogs.com/cmt/p/17320765.html" target="_blank">助园</a></li>
+                <li>
+                    <a href="https://ing.cnblogs.com/" onclick="countClicks('nav', 'skin-navbar-ing')">闪存</a>
+                </li>
+                <li>
+                    <a href="https://edu.cnblogs.com/" onclick="countClicks('nav', 'skin-navbar-edu')">班级</a>
+                </li>
+            </ul>
+            <ul id="nav_right" class="navbar-list navbar-right">
+                <li>
+                    <form id="zzk_search" class="navbar-search dropdown" action="https://zzk.cnblogs.com/s" method="get" role="search">
+                        <input name="w" id="zzk_search_input" placeholder="代码改变世界" type="search" tabindex="3" autocomplete="off" />
+                        <button id="zzk_search_button" onclick="window.navbarSearchManager.triggerActiveOption()">
+                            <img id="search_icon" class="focus-hidden" src="//common.cnblogs.com/images/blog/search.svg" alt="搜索" />
+                            <img class="hidden focus-visible" src="/images/enter.svg" alt="搜索" />
+                        </button>
+                        <ul id="navbar_search_options" class="dropdown-menu quick-search-menu">
+                            <li tabindex="0" class="active" onclick="zzkSearch(event, document.getElementById('zzk_search_input').value)">
+                                <div class="keyword-wrapper">
+                                    <img src="//common.cnblogs.com/images/blog/search.svg" alt="搜索" />
+                                    <div class="keyword"></div>
+                                </div>
+                                <span class="search-area">所有博客</span>
+                            </li>
+                                    <li tabindex="1" onclick="zzkBlogSearch(event, 'value410781', document.getElementById('zzk_search_input').value)">
+                                        <div class="keyword-wrapper">
+                                            <img src="//common.cnblogs.com/images/blog/search.svg" alt="搜索" />
+                                            <div class="keyword"></div>
+                                        </div>
+                                        <span class="search-area">当前博客</span>
+                                    </li>
+                        </ul>
+                    </form>
+                </li>
+                <li id="navbar_login_status" class="navbar-list">
+                    <a class="navbar-user-info navbar-blog" href="https://i.cnblogs.com/EditPosts.aspx?opt=1" alt="写随笔" title="写随笔">
+                        <img id="new_post_icon" class="navbar-icon" src="//common.cnblogs.com/images/blog/newpost.svg" alt="写随笔" />
+                    </a>
+                    <a id="navblog-myblog-icon" class="navbar-user-info navbar-blog" href="https://passport.cnblogs.com/GetBlogApplyStatus.aspx" alt="我的博客" title="我的博客">
+                        <img id="myblog_icon" class="navbar-icon" src="//common.cnblogs.com/images/blog/myblog.svg" alt="我的博客" />
+                    </a>
+                    <a class="navbar-user-info navbar-message navbar-icon-wrapper" href="https://msg.cnblogs.com/" alt="短消息" title="短消息">
+                        <img id="msg_icon" class="navbar-icon" src="//common.cnblogs.com/images/blog/message.svg" alt="短消息" />
+                        <span id="msg_count" style="display: none"></span>
+                    </a>
+                    <a id="navbar_lite_mode_indicator" data-current-page="blog" style="display: none" href="javascript:void(0)" alt="简洁模式" title="简洁模式启用，您在访问他人博客时会使用简洁款皮肤展示">
+                        <img class="navbar-icon" src="//common.cnblogs.com/images/blog/lite-mode-on.svg" alt="简洁模式" />
+                    </a>
+                    <div id="user_info" class="navbar-user-info dropdown">
+                        <a class="dropdown-button" href="https://home.cnblogs.com/">
+                            <img id="user_icon" class="navbar-avatar" src="//common.cnblogs.com/images/blog/avatar-default.svg" alt="用户头像" />
+                        </a>
+                        <div class="dropdown-menu">
+                            <a id="navblog-myblog-text" href="https://passport.cnblogs.com/GetBlogApplyStatus.aspx">我的博客</a>
+                            <a href="https://home.cnblogs.com/">我的园子</a>
+                            <a href="https://account.cnblogs.com/settings/account">账号设置</a>
+                            <a href="javascript:void(0)" id="navbar_lite_mode_toggle" title="简洁模式会使用简洁款皮肤显示所有博客">
+    简洁模式 <img id="navbar_lite_mode_on" src="/images/lite-mode-check.svg" class="hide" /><span id="navbar_lite_mode_spinner" class="hide">...</span>
+</a>
+                            <a href="javascript:void(0)" onclick="account.logout();">退出登录</a>
+                        </div>
+                    </div>
+                    <a class="navbar-anonymous" href="https://account.cnblogs.com/signup">注册</a>
+                    <a class="navbar-anonymous" href="javascript:void(0);" onclick="account.login()">登录</a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+
+    
+
+    
+<!--done-->
+<div id="home">
+<div id="header">
+	<div id="blogTitle">
+	<a href="https://www.cnblogs.com/value410781/"><img id="blogLogo" src="/skins/custom/images/logo.gif" alt="返回主页" /></a>			
+		
+<!--done-->
+<h1><a id="Header1_HeaderTitle" class="headermaintitle HeaderMainTitle" href="https://www.cnblogs.com/value410781/">ALL|ONE</a>
+</h1>
+<h2></h2>
+
+
+
+
+		
+	</div><!--end: blogTitle 博客的标题和副标题 -->
+</div><!--end: header 头部 -->
+
+<div id="main">
+	<div id="mainContent">
+	<div class="forFlow">
+		<div id="navigator">
+			
+<ul id="navList">
+	<li><a id="blog_nav_sitehome" class="menu" href="https://www.cnblogs.com/">
+博客园</a>
+</li>
+	<li>
+<a id="blog_nav_myhome" class="menu" href="https://www.cnblogs.com/value410781/">
+首页</a>
+</li>
+	<li>
+
+<a id="blog_nav_newpost" class="menu" href="https://i.cnblogs.com/EditPosts.aspx?opt=1">
+新随笔</a>
+</li>
+	<li>
+<a id="blog_nav_contact" class="menu" href="https://msg.cnblogs.com/send/ALL%7CONE">
+联系</a></li>
+	<li>
+<a id="blog_nav_admin" class="menu" href="https://i.cnblogs.com/">
+管理</a>
+</li>
+	<li>
+<a id="blog_nav_rss" class="menu" href="javascript:void(0)" data-rss="https://www.cnblogs.com/value410781/rss/">
+订阅</a>
+	
+<a id="blog_nav_rss_image" href="https://www.cnblogs.com/value410781/rss/">
+    <img src="/skins/coffee/images/xml.gif" alt="订阅" />
+</a></li>
+</ul>
+
+
+
+			<div class="blogStats">
+				
+				<div id="blog_stats_place_holder"><script>loadBlogStats();</script></div>
+				
+			</div><!--end: blogStats -->
+		</div><!--end: navigator 博客导航栏 -->
+		<div id="post_detail">
+<!--done-->
+<div id="topics">
+	<div class="post">
+		<h1 class = "postTitle">
+			
+<a id="cb_post_title_url" class="postTitle2 vertical-middle" href="https://www.cnblogs.com/value410781/articles/17371567.html">
+    <span role="heading" aria-level="2">Part.1 HTML基础</span>
+    
+</a>
+
+		</h1>
+		<div class="clear"></div>
+		<div class="postBody">
+			<div id="cnblogs_post_body" class="blogpost-body cnblogs-markdown">
+<h3 id="1html的定义">1、HTML的定义</h3>
+<ul>
+<li>HTML指的是<strong>超文本标记语言</strong>（Hyper Text Markup Language)，它是用来描述网页的一种语言。</li>
+<li>HTML不是一种编程语言，而是一种标记语言（markup language）。</li>
+</ul>
+<h3 id="2html的基本结构">2、HTML的基本结构</h3>
+<pre><code>&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+  &lt;meta charset="UTF-8"&gt;
+  &lt;title&gt;Document&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+<h4 id="21-doctype-html">2.1 <code>&lt;!DOCTYPE html&gt;</code></h4>
+<ul>
+<li><code>&lt;!DOCTYPE html&gt;</code>是html5标准网页声明,全称为Document Type HyperText Mark-up Language，支持HTML5的浏览器都能识别这个声明，表示这是一个HTML5网页。</li>
+<li>声明文档的解析类型(document.compatMode)，避免浏览器用怪异模式来解析渲染页面。</li>
+</ul>
+<h4 id="22-documentcompatmode">2.2 <code>document.compatMode</code></h4>
+<ul>
+<li><strong>BackCompat</strong>：怪异模式，浏览器使用自己的怪异模式解析渲染页面。---》这样会导致不同浏览器渲染的效果不一样</li>
+<li><strong>CSS1Compat</strong>：标准模式，浏览器使用W3C的标准解析渲染页面。</li>
+<li>document.compatMode默认是BackCompat，所以html最好写上文档声明。</li>
+</ul>
+<h4 id="23-html-langen">2.3 <code>&lt;html lang="en"&gt;</code></h4>
+<ul>
+<li>lang属性是指网页的语言，值为<code>en</code>英文或<code>zh-CN</code>中文。</li>
+<li>lang主要是为了告诉搜索引擎当前页面是英文网址还是中文网站，有利于对网页的搜索；当然也可以不写，不利于搜索而已。</li>
+</ul>
+<h4 id="24-meta">2.4 <code>&lt;meta&gt;</code></h4>
+<ul>
+<li>总共支持4个全局属性：<code>charset</code>，<code>http-equiv</code>，<code>name</code>，<code>content</code></li>
+<li><code>charset</code>定义文档编码格式，防止解析时乱码</li>
+<li><code>http-equiv</code>需要结合<code>content</code>属性来使用，以定义一个响应头字段的值。不过在HTML5中，已经不再用这个字段来描述响应头，它所支持的值也缩减为5个(<em>鉴于目前浏览器仍然支持HTML4，因此像expires、cache-control这样被HTML5舍弃的值仍然是有效的</em>)。</li>
+</ul>
+<blockquote>
+<h6 id="html5的http-equiv包含以下几个值">HTML5的http-equiv包含以下几个值：</h6>
+<ol>
+<li><strong>content-security-policy</strong>，定义文档的内容安全策略。<br>
+主要目的是抵御XSS（cross-site scripting attacks，跨站点脚本攻击）。<br>
+<code>&lt;meta http-equiv="content-security-policy" content="frame-src https://xxx.xxx.xxx; script-src https://xxx.xxx.xxx"&gt;</code><br>
+这里的content定义了两个安全策略：frame-src和script-src，它们分别定义的是iframe（frame）和script的域地址，如果对应的资源不是来自指定的域，浏览器就会抛出错误，禁止加载这些资源，这样可以有效防止跨站点攻击。</li>
+<li><strong>content-type</strong>，定义文档类型，其值必须是"text/html; charset=utf-8"。<br>
+在HTML5中被<code>&lt;meta charset="UTF-8"&gt;</code>所取代.</li>
+<li><s><strong>default-style</strong></s>，设置默认CSS样式表组的名称。已弃用。<br>
+它的值必须与某个link或style标签的title一致，以指定该样式表作为当前文档的默认样式表。</li>
+</ol>
+<pre><code>&lt;meta http-equiv="default-style" content="main1"&gt;
+&lt;link rel="stylesheet" href="mystyle.css" title="main1"&gt;
+</code></pre>
+<ol start="4">
+<li><strong>x-ua-compatible</strong>，兼容性声明，指定所用浏览器的内核，规范要求此时content的值必须包含"IE=edge"。</li>
+<li><strong>refresh</strong>，定义文档的自动刷新策略。<br>
+如果对应的content是一个整数，那么页面会在指定的时间间隔（秒）后重新加载；如果content的值是整数后面跟了;url=xxx，并且这个url是个合法的值，那么浏览器会在指定的秒数后跳转到该地址。如：</li>
+</ol>
+<pre><code>&lt;!--页面会在20秒后刷新--&gt;
+&lt;meta http-equiv="refresh" content="20"&gt;
+&lt;!--页面会在20秒后跳转到百度--&gt;
+&lt;meta http-equiv="refresh" content="20;url=https://www.baidu.com"&gt;
+</code></pre>
+</blockquote>
+<ul>
+<li><code>name</code>同http-equiv一样，name也需要配合content属性一起使用。与http-equiv不同的是，由name描述的属性与响应头的字段没有对应关系，它们更多的是描述文档本身。</li>
+</ul>
+<blockquote>
+<h6 id="name的常见取值包括">name的常见取值包括：</h6>
+<ol>
+<li>application-name，定义正运行在该网页上的网络应用名称。</li>
+<li>author，文档的作者，可以用自由的格式去定义。</li>
+<li>description，定义页面内容的简短和精确的描述，某些浏览器（如Firefox和Opera）会将其作为书签页的默认描述。</li>
+<li>generator，生成页面的软件的标识符。</li>
+<li>keywords，由逗号分隔的页面内容相关的关键词。</li>
+<li>referrer ，控制所有从该文档发出的 HTTP 请求中HTTP Referer 首部的内容。</li>
+<li>creator，文档的创建人。</li>
+<li>googlebot，谷歌专用的爬虫字段。</li>
+<li>publisher，文档的发布人。</li>
+<li>robots ，定义搜索引擎或抓取工具的行为。</li>
+<li>slurp，雅虎专用的抓取工具行为定义。</li>
+<li><strong>viewport</strong>，定义移动端的初始视口大小。<br>
+它提供有关视口初始大小的提示，仅供移动设备使用。此时content的可选值包括：</li>
+</ol>
+</blockquote>
+<blockquote>
+<table>
+<thead>
+<tr>
+<th>选项</th>
+<th>值</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>width</td>
+<td>一个正整数或特殊的字符串‘device-width’</td>
+<td>值为正整数时，是以像素(px)为单位的页面初始宽度；当为’device-width’时，表示页面初始宽度为设备宽度</td>
+</tr>
+<tr>
+<td>height</td>
+<td>一个正整数或者字符串 device-height</td>
+<td>同上，定义页面初始高度</td>
+</tr>
+<tr>
+<td>initial-scale</td>
+<td>一个介于0.0到1.0的正数</td>
+<td>定义设备宽度与视口宽度的百分比，即视口的缩放比例</td>
+</tr>
+<tr>
+<td>maximum-scale</td>
+<td>一个0.0到10.0的正数</td>
+<td>定义缩放的最大值，当达到这个比值时，用户无法继续放大</td>
+</tr>
+<tr>
+<td>minimum-scale</td>
+<td>一个0.0到10.0的正数</td>
+<td>定义缩放的最小值，当达到这个比值时，用户无法继续缩小。minimum-scale必须小于maximum-scale，否则可能造成无法预知的异常</td>
+</tr>
+<tr>
+<td>user-scalable</td>
+<td>yes或no</td>
+<td>是否允许用户缩放页面，默认为yes</td>
+</tr>
+</tbody>
+</table>
+</blockquote>
+<ul>
+<li>注意，标准没有严格限制name必须取上述值，你可以用它来描述任何你想描述的元信息。<br>
+以下是一个移动设备常用的值：</li>
+</ul>
+<blockquote>
+<pre><code>&lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+&lt;!--表示初始等于设备宽度，不缩放--&gt;
+</code></pre>
+</blockquote>
+<h4 id="25-link">2.5 <code>&lt;link&gt;</code></h4>
+<ul>
+<li>link 标签定义文档与外部资源的关系。通常只存在于head部分。</li>
+<li>链接外部样式文件<br>
+<code>&lt;link rel='stylesheet'  href='ease.css' type='text/css'  /&gt;</code></li>
+<li>为网页标题添加自定义图标,sizes定义了链接属性大小，只对属性 rel="icon" 起作用。<br>
+<code>&lt;link rel="icon" href="favicon.ico" sizes="192x192" /&gt;</code></li>
+</ul>
+<h4 id="26-script">2.6 <code>&lt;script&gt;</code></h4>
+<ul>
+<li>标签用于定义客户端脚本，比如 JavaScript。</li>
+<li>如果使用 "src" 属性，则 <code>&lt;script&gt;</code> 元素必须是空的。</li>
+<li>js传统脚本<code>type="text/javascript"</code></li>
+<li>js模块脚本<code>type="module"</code></li>
+<li>模块标识符的解析<code>type="importmap"</code>，每一个页面最多只能有一个importmap</li>
+</ul>
+<pre><code>&lt;script type="importmap"&gt;
+{
+    "imports": { //作用于全局的映射
+        "moment": "/node_modules/moment/src/moment.js",
+        "moments/": "/node_modules/moments/src/"
+    },
+    "scopes": { //作用于局部映射。常用于在页面内使用同一模块的不同版本。
+        "/a/" : {
+            "moment": "/node_modules/moment/src/moment.js"
+        },
+        "/b/" : {
+            "moment": "https://cdn.example.com/moment/src/moment.js"
+        }
+    }
+}
+&lt;/script&gt;
+&lt;script type="module"&gt;
+    import moment from "moment"
+    import localeData from "moments/locale/zh-cn.js"
+&lt;/script&gt;
+</code></pre>
+<ul>
+<li>数据块<code>type="xxx"</code>，用户自定义，浏览器会忽略这个标签的解析。</li>
+<li>js加载属性：<code>&lt;script defer /&gt;</code>延迟加载<code>&lt;script async /&gt;</code>异步加载<br>
+<img src="https://img2023.cnblogs.com/blog/1499895/202305/1499895-20230504175438236-953199971.png" alt="image" loading="lazy"></li>
+</ul>
+<h3 id="3html的重要标签">3、HTML的重要标签</h3>
+<h4 id="31-a-href-target">3.1 <code>&lt;a href="" target=""&gt;</code></h4>
+<ul>
+<li>target属性主要有以下几种：</li>
+</ul>
+<blockquote>
+<table>
+<thead>
+<tr>
+<th>值</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>_blank</td>
+<td>在新窗口中打开被链接文档</td>
+</tr>
+<tr>
+<td>_self</td>
+<td>默认。在相同的框架中打开被链接文档</td>
+</tr>
+<tr>
+<td>_parent</td>
+<td>在父框架集中打开被链接文档</td>
+</tr>
+<tr>
+<td>_top</td>
+<td>在整个窗口中打开被链接文档</td>
+</tr>
+<tr>
+<td>framename</td>
+<td>在指定框架中打开被链接文档</td>
+</tr>
+</tbody>
+</table>
+</blockquote>
+<ul>
+<li>href属性主要有以下几种用法：</li>
+</ul>
+<blockquote>
+<p><code>&lt;a href="https://www.baidu.com"&gt;链接&lt;/a&gt;</code><br>
+<code>&lt;a href="#top"&gt;指向页面中的锚&lt;/a&gt;&lt;a name="top"&gt;&lt;/a&gt;&lt;p id="top"&gt;&lt;/p&gt;</code><br>
+<code>&lt;a href="tel:13551262756"&gt;打电话(移动端)&lt;/a&gt;</code><br>
+<code>&lt;a href="sms:13551262756"&gt;发短信(移动端)&lt;/a&gt;</code><br>
+<code>&lt;a href="Mailto:your@mail.com"&gt;发邮件&lt;/a&gt;</code></p>
+</blockquote>
+<ul>
+<li>不常用属性：rel,download,type,hreflang,media等</li>
+</ul>
+<h4 id="32-img-srcfjjpg-width100-height100-alt风景-">3.2 <code>&lt;img src="fj.jpg" width="100" height="100" alt="风景" /&gt;</code></h4>
+<blockquote>
+<table>
+<thead>
+<tr>
+<th>属性</th>
+<th>值</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>src</td>
+<td>url</td>
+<td>图像资源的地址</td>
+</tr>
+<tr>
+<td>width</td>
+<td>像素px</td>
+<td>图像宽度</td>
+</tr>
+<tr>
+<td>height</td>
+<td>像素px</td>
+<td>图像高度</td>
+</tr>
+<tr>
+<td>alt</td>
+<td>替代文字</td>
+<td>图片的替代文字</td>
+</tr>
+</tbody>
+</table>
+</blockquote>
+<h4 id="33-iframe-src-name-width-height-frameborder-scrolling-">3.3 <code>&lt;iframe src name width height frameborder scrolling /&gt;</code></h4>
+<blockquote>
+<table>
+<thead>
+<tr>
+<th>属性</th>
+<th>值</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>width</td>
+<td>px, %</td>
+<td>指定框架的宽度</td>
+</tr>
+<tr>
+<td>height</td>
+<td>px, %</td>
+<td>指定框架的高度</td>
+</tr>
+<tr>
+<td>scrolling</td>
+<td>yes, no, auto</td>
+<td>是否显示滚动条</td>
+</tr>
+<tr>
+<td>frameborder</td>
+<td>1, 0</td>
+<td>是否显示边框</td>
+</tr>
+</tbody>
+</table>
+</blockquote>
+<h4 id="34-textarea-name-rows-colstextarea">3.4 <code>&lt;textarea name rows cols&gt;&lt;/textarea&gt;</code></h4>
+<ul>
+<li>rows文本框高度，即行数</li>
+<li>cols文本框宽度，即每行字数</li>
+</ul>
+<h4 id="35-canvas-width-heightcanvas">3.5 <code>&lt;canvas width height&gt;&lt;/canvas&gt;</code></h4>
+<ul>
+<li>width与height指的是画布的宽高，即画布能显示的坐标域为(0,0)到(width,height)</li>
+<li>可以在css中设置元素宽高，但不会影响画布宽高</li>
+</ul>
+<h4 id="36-audio-src-controlsaudio">3.6 <code>&lt;audio src="" controls&gt;&lt;audio&gt;</code></h4>
+<blockquote>
+<table>
+<thead>
+<tr>
+<th>属性</th>
+<th>值</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>autoplay</td>
+<td>autoplay</td>
+<td>如果出现该属性，则音频在就绪后马上播放。</td>
+</tr>
+<tr>
+<td>controls</td>
+<td>controls</td>
+<td>如果出现该属性，则向用户显示音频控件（比如播放/暂停按钮）。</td>
+</tr>
+<tr>
+<td>loop</td>
+<td>loop</td>
+<td>如果出现该属性，则每当音频结束时重新开始播放。</td>
+</tr>
+<tr>
+<td>muted</td>
+<td>muted</td>
+<td>如果出现该属性，则音频输出为静音。</td>
+</tr>
+<tr>
+<td>preload</td>
+<td>auto, metadata, none</td>
+<td>设定音频的预加载方式:<br>auto自动加载，页面加载后载入整个音频;<br>metadata自动加载，页面加载后只载入元数据;<br>none不自动加载;</td>
+</tr>
+<tr>
+<td>src</td>
+<td>URL</td>
+<td>规定音频文件的 URL</td>
+</tr>
+</tbody>
+</table>
+</blockquote>
+<ul>
+<li>注意preload和autoplay相冲，如果设置了autoplay属性，那么preload属性就会失效</li>
+<li>目前，audio 元素支持的3种文件格式：MP3、Wav、Ogg</li>
+</ul>
+<h4 id="37-video-src-controlsvideo">3.7 <code>&lt;video src="" controls&gt;&lt;video&gt;</code></h4>
+<blockquote>
+<table>
+<thead>
+<tr>
+<th>属性</th>
+<th>值</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>autoplay</td>
+<td>autoplay</td>
+<td>如果出现该属性，则视频在就绪后马上播放</td>
+</tr>
+<tr>
+<td>controls</td>
+<td>controls</td>
+<td>如果出现该属性，则向用户显示控件，比如播放按钮。</td>
+</tr>
+<tr>
+<td>loop</td>
+<td>loop</td>
+<td>如果出现该属性，则当媒介文件完成播放后再次开始播放</td>
+</tr>
+<tr>
+<td>muted</td>
+<td>muted</td>
+<td>如果出现该属性，视频的音频输出为静音。</td>
+</tr>
+<tr>
+<td>preload</td>
+<td>auto, metadata, none</td>
+<td>设定视频的预加载方式:<br>auto自动加载，页面加载后载入整个视频;<br>metadata自动加载，页面加载后只载入元数据;<br>none不自动加载;</td>
+</tr>
+<tr>
+<td>src</td>
+<td>URL</td>
+<td>规定视频文件的 URL</td>
+</tr>
+<tr>
+<td>width</td>
+<td>pixels</td>
+<td>设置视频播放器的宽度</td>
+</tr>
+<tr>
+<td>height</td>
+<td>pixels</td>
+<td>设置视频播放器的高度</td>
+</tr>
+<tr>
+<td>poster</td>
+<td>URL</td>
+<td>规定视频正在下载时显示的图像，直到用户点击播放按钮(封面)</td>
+</tr>
+</tbody>
+</table>
+</blockquote>
+<ul>
+<li>注意preload和autoplay相冲，如果设置了autoplay属性，那么preload属性就会失效</li>
+<li>目前，video 元素支持三种视频格式：MP4、WebM、Ogg</li>
+<li>MP4 = MPEG 4文件使用 H264 视频编解码器和AAC音频编解码器</li>
+<li>WebM = WebM 文件使用 VP8 视频编解码器和 Vorbis 音频编解码器</li>
+<li>Ogg = Ogg 文件使用 Theora 视频编解码器和 Vorbis音频编解码器</li>
+</ul>
+
+</div>
+<div class="clear"></div>
+<div id="blog_post_info_block" role="contentinfo">
+    <div id="blog_post_info"></div>
+    <div class="clear"></div>
+    <div id="post_next_prev"></div>
+</div>
+		</div>
+		<div class="postDesc">posted @ 
+<span id="post-date" data-last-update-days="2.2389366823425925" data-date-created="BlogServer.Application.Dto.BlogPost.BlogPostDto" data-date-updated="2023-05-12 15:48">2023-05-08 11:38</span>&nbsp;
+<a href="https://www.cnblogs.com/value410781/">ALL|ONE</a>&nbsp;
+阅读(<span id="post_view_count">3</span>)&nbsp;
+评论(<span id="post_comment_count">0</span>)&nbsp;
+<a href="https://i.cnblogs.com/EditArticles.aspx?postid=17371567" rel="nofollow">编辑</a>&nbsp;
+<a href="javascript:void(0)" onclick="AddToWz(17371567);return false;">收藏</a>&nbsp;
+<a href="javascript:void(0)" onclick="reportManager.report({ currentUserId: '', targetType: 'blogPost', targetId: '17371567', targetLink: 'https://www.cnblogs.com/value410781/p/17371567.html', title: 'Part.1 HTML基础' })">举报</a>
+</div>
+	</div>
+	
+	
+</div><!--end: topics 文章、评论容器-->
+
+<script>
+    var cb_entryId = 17371567, cb_entryCreatedDate = '2023-05-08 11:38', cb_postType = 2, cb_postTitle = 'Part.1 HTML基础';
+    var allowComments = true, cb_blogId = 464116, cb_blogApp = 'value410781', cb_blogUserGuid = '05d8b7a5-b97a-4706-d91f-08d6222f6651';
+    mermaidRender.render()
+    markdown_highlight()
+    zoomManager.apply("#cnblogs_post_body img:not(.code_img_closed):not(.code_img_opened)");
+    updatePostStats(
+            [cb_entryId],
+            function(id, count) { $("#post_view_count").text(count) },
+            function(id, count) { $("#post_comment_count").text(count) });
+</script>
+<a id="!comments"></a>
+<div id="blog-comments-placeholder"></div>
+<div id="comment_form" class="commentform">
+    <a name="commentform"></a>
+    <div id="divCommentShow"></div>
+    <div id="comment_nav"><span id="span_refresh_tips"></span><a href="javascript:void(0);" onclick="return RefreshCommentList();" id="lnk_RefreshComments" runat="server" clientidmode="Static">刷新评论</a><a href="#" onclick="return RefreshPage();">刷新页面</a><a href="#top">返回顶部</a></div>
+    <div id="comment_form_container"></div>
+    <div class="ad_text_commentbox" id="ad_text_under_commentbox"></div>
+        <div id="cnblogs_ch"></div>
+    <div id="opt_under_post"></div>
+    <div id="cnblogs_c1" class="under-post-card">
+            <div id='div-gpt-ad-1592365906576-0' style='width: 300px; height: 250px;'></div>
+    </div>
+    <div id="under_post_card1"></div>
+    <div id="under_post_card2"></div>
+    <div id="HistoryToday" class="under-post-card"></div>
+    <script type="text/javascript">
+        var commentManager = new blogCommentManager();
+        commentManager.renderComments(0);
+        fixPostBody();
+        window.footnoteTipManager.generateFootnoteTips();
+
+            window.tocManager.displayDisableTocTips = false;
+            window.tocManager.generateToc();
+            
+                setTimeout(function() { countViews(cb_blogId, cb_entryId); }, 50);
+            
+            deliverT2();
+            deliverC1C2();
+            loadNewsAndKb();
+            
+                LoadPostCategoriesTags(cb_blogId, cb_entryId);
+            
+            LoadPostInfoBlock(cb_blogId, cb_entryId, cb_blogApp, cb_blogUserGuid);
+            GetPrevNextPost(cb_entryId, cb_blogId, cb_entryCreatedDate, cb_postType);
+            loadOptUnderPost();
+            GetHistoryToday(cb_blogId, cb_blogApp, cb_entryCreatedDate);
+                </script>
+</div>
+
+</div>
+
+
+	</div><!--end: forFlow -->
+	</div><!--end: mainContent 主体内容容器-->
+
+	<div id="sideBar">
+		<div id="sideBarMain">
+			<div id="sidebar_news" class="newsItem">
+    <!--done-->
+<div class="newsItem">
+<h3 class="catListTitle">公告</h3>
+	<div id="blog-news">    
+    <div id="sidebar_news_content">
+    </div>
+</div>
+<script>loadBlogNews();</script>
+</div>
+
+ 
+</div>
+<div id="sidebar_c3"></div>
+			<div id="calendar"><div id="blog-calendar" style="display:none"></div><script>loadBlogDefaultCalendar();</script></div>
+			
+			<DIV id="leftcontentcontainer">
+				<div id="blog-sidecolumn"></div>
+                    <script>loadBlogSideColumn();</script>
+			</DIV>
+			
+		</div><!--end: sideBarMain -->
+	</div><!--end: sideBar 侧边栏容器 -->
+	<div class="clear"></div>
+	</div><!--end: main -->
+	<div class="clear"></div>
+	<div id="footer">
+		<!--done-->
+Copyright &copy; 2023 ALL|ONE
+<br /><span id="poweredby">Powered by .NET 7.0 on Kubernetes</span>
+
+
+
+	</div><!--end: footer -->
+</div><!--end: home 自定义的最大容器 -->
+
+
+
+    
+
+    <input type="hidden" id="antiforgery_token" value="CfDJ8M-opqJn5c1MsCC_BxLIULkuZfQw4Tfo7LyZ01nT7xW4rsI5eZh2CsNM-Sw9To-e7aN_YQt-YJ6r6J5waoGo69XIGHNgc78cOTg3Ag5lxHzguFs4l60-vL6QHU2nklA_COL2AliKnCQ59bpE8IjwnxA" />
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-476124-1"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    var kv = getGACustom();
+    if (kv) {
+        gtag('set', kv);
+    }
+    gtag('config', 'UA-476124-1');
+</script>
+<script defer src="https://hm.baidu.com/hm.js?866c9be12d4a814454792b1fd0fed295"></script>
+</body>
+</html>

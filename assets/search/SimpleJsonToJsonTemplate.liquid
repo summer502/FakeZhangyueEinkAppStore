@@ -1,0 +1,23 @@
+{% assign beatles = "John, Paul, George, Ringo" | split: ", " %}
+
+{% for member in beatles %}
+  {{ member }}
+{% endfor %}
+
+
+{%- assign deviceList = content.devices | Split: ', ' -%}
+
+{
+   "fullName": "{{content.firstName | Append: ' ' | Append: content.lastName}}",
+   "firstNameUpperCase": "{{content.firstName | Upcase}}",
+   "phoneAreaCode": "{{content.phone | Slice: 1, 3}}",
+   "devices" : [
+      {%- for device in deviceList -%}
+         {%- if forloop.Last == true -%}
+         "{{device}}"
+         {%- else -%}
+         "{{device}}",
+         {%- endif -%}
+      {%- endfor -%}
+   ]
+}
