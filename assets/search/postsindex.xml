@@ -32,7 +32,7 @@ layout: null
     <post>
       <title>{{ title }}</title>
       <description>{{ description }}</description>
-      <content><![CDATA[{{ content }}</content>
+      <content>{{ content }}</content>
       <date>{{ date }}</date>
       <url>{{ url }}</url>
     </post>
