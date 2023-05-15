@@ -19,3 +19,49 @@ layout: default
   {%- assign username = site.author | slice: 6, 3 -%}
   {{ username }}
 {%- endif -%}
+
+<hr>
+==========test==========-----------test----------===========test==============
+<hr>
+
+{% assign version = 'v1.0.0' %}
+
+{% raw %}
+  In Handlebars, {{ this }} will be HTML-escaped, but
+  {{{ that }}} will not.
+{% endraw %}
+<hr>
+输出
+In Handlebars, {{ this }} will be HTML-escaped, but {{{ that }}} will not.
+<hr>
+<hr>
+{% raw %}
+{
+{% endraw %}
+    "version":"{{ version }}",
+    "buildAt": "{{ buildAt }}",
+    "total_posts": "{{ paginator.total_posts }}",
+    "posts": [
+    {%- for post in site.posts %}
+        {% assign title = post.title | escape %}
+        {% assign description = post.content | strip_html | strip_newlines | replace: " ", "" | replace: "	", "" | truncate: 120 | escape %}
+        {% assign content = post.content | strip_html | strip_newlines | strip | replace: " ", "" | replace: "	", "" %}
+        {% assign date = post.date | date_to_rfc822 %}
+        {% assign url = post.url %}
+
+        {% capture a_post %}
+        {
+            "title": "{{ title }}",
+            "description": "{{ description }}",
+            "content": "{{ content }}",
+            "date": "{{ date }}",
+            "url": "{{ url }}"
+        }
+        {% endcapture %}
+        
+        {{ a_post }}
+    {%- endfor %}
+    ]
+{% raw %}
+}
+{% endraw %}
