@@ -261,14 +261,14 @@ function getSearchEngine() {
         a.appendChild(p_content);
 
         let li = document.createElement('li');
-        location.appendChild(a);
+        li.appendChild(a);
         // li.innerHTML = '<ul class="list-search">' +
-        //   '<li hidden>' +
-        //   '<a href="' + url + '">' +
-        //   '<p class="title">' + title + '</p>' +
-        //   '<p class="content">' + content + '</p>' +
-        //   '</a>' +
-        //   '</li>' +
+        //     '<li hidden>' +
+        //       '<a href="' + url + '">' +
+        //         '<p class="title">' + title + '</p>' +
+        //         '<p class="content">' + content + '</p>' +
+        //       '</a>' +
+        //     '</li>' +
         //   '</ul>';
 
         ul.appendChild(li);
