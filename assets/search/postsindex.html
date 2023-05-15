@@ -25,8 +25,8 @@ layout: null
   </tr>
   {%- for post in site.posts -%}
     {%- assign title = post.title | escape -%}
-    {%- assign description = post.content | strip_html | strip_newlines | strip | replace: " ", "" | replace: ":", "" | replace: "\", "" | replace: '"', '' | truncate: 120 | escape -%}
-    {%- assign content = post.content | strip_html | strip_newlines | strip | replace: " ", "" | replace: ":", "" | replace: "\", "" | replace: '"', '' -%}
+    {%- assign description = post.content | strip_html | strip_newlines | strip | replace: " ", "" | replace: ":", "" | replace: "\", "" | replace: "/", "" | replace: '"', '' | truncate: 120 | escape -%}
+    {%- assign content = post.content | strip_html | strip_newlines | strip | replace: " ", "" | replace: ":", "" | replace: "\", "" | replace: "/", "" | replace: '"', '' -%}
     {%- assign date = post.date | date_to_rfc822 -%}
     {%- assign url = site.baseurl | append: post.url -%}
     <tr>
