@@ -1,19 +1,19 @@
 ---
 ---
-{% assign version = 'v1.0.0' %}
-
+{%- assign version = 'v1.0.0' -%}
+{%- assign buildAt = site.time | date: "%Y%m%d%H%M%S" -%}
 {
     "version":"{{ version }}",
     "buildAt": "{{ buildAt }}",
-    "total_posts": "{{ paginator.total_posts }}",
+    "total_posts": "{{ site.posts.size }}",
     "posts": [
-    {%- for post in site.posts %}
-        {% assign title = post.title | escape %}
-        {% assign description = post.content | strip_html | strip_newlines | replace: " ", "" | replace: "	", "" | truncate: 120 | escape %}
-        {% assign content = post.content | strip_html | strip_newlines | strip | replace: " ", "" | replace: "	", "" %}
-        {% assign date = post.date | date_to_rfc822 %}
-        {% assign url = post.url %}
-        {% capture a_post %}
+    {%- for post in site.posts -%}
+        {%- assign title = post.title | escape -%}
+        {%- assign description = post.content | strip_html | strip_newlines | replace: " ", "" | replace: "	", "" | truncate: 120 | escape -%}
+        {%- assign content = post.content | strip_html | strip_newlines | strip | replace: " ", "" | replace: "	", "" -%}
+        {%- assign date = post.date | date_to_rfc822 -%}
+        {%- assign url = post.url -%}
+        {%- capture a_post -%}
         {
             "title": "{{ title }}",
             "description": "{{ description }}",
@@ -21,8 +21,8 @@
             "date": "{{ date }}",
             "url": "{{ url }}"
         }
-        {% endcapture %}
+        {%- endcapture -%}
         {{ a_post }}
-    {%- endfor %}
+    {%- endfor -%}
     ]
 }
