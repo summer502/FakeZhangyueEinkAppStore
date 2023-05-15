@@ -1,5 +1,49 @@
 ---
 ---
+{%- assign version = 'v1.0.0' -%}
+{%- assign buildAt = site.time | date: "%Y%m%d%H%M%S" -%}
+<table border="1">
+  <tr>
+    <th>version</th>
+    <th>buildAt</th>
+    <th>total_posts</th>
+  </tr>
+  <tr>
+    <td>{{ version }}</td>
+    <td>{{ buildAt }}</td>
+    <td>{{ site.posts.size }}</td>
+  </tr>
+</table>
+<table border="1">
+  <tr>
+    <th>title</th>
+    <th>description</th>
+    <th>content</th>
+    <th>date</th>
+    <th>url</th>
+  </tr>
+  {%- for post in site.posts -%}
+    {%- assign title = post.title | escape -%}
+    {%- assign description = post.content | strip_html | strip_newlines | strip | replace: " ", "" | replace: ":", "" | replace: "\", "" | replace: '"', '' | truncate: 120 | escape -%}
+    {%- assign content = post.content | strip_html | strip_newlines | strip | replace: " ", "" | replace: ":", "" | replace: "\", "" | replace: '"', '' -%}
+    {%- assign date = post.date | date_to_rfc822 -%}
+    {%- assign url = post.url -%}
+    <tr>
+      <td>{{ title }}</td>
+      <td>{{ description }}</td>
+      <td>{{ content }}</td>
+      <td>{{ date }}</td>
+      <td>{{ url }}</td>
+    </tr>
+  {%- endfor -%}     
+</table>
+
+
+
+
+
+
+
 <table>
     {% tablerow post in site.posts %}
       {{ post.title }}
@@ -19,12 +63,6 @@
   {{ username }}
 {%- endif -%}
 
-<hr>
-==========test==========-----------test----------===========test==============
-<hr>
-
-{% assign version = 'v1.0.0' %}
-
 {% raw %}
   In Handlebars, {{ this }} will be HTML-escaped, but
   {{{ that }}} will not.
@@ -34,33 +72,3 @@
 In Handlebars, {{ this }} will be HTML-escaped, but {{{ that }}} will not.
 <hr>
 <hr>
-{% raw %}
-{
-{% endraw %}
-    "version":"{{ version }}",
-    "buildAt": "{{ buildAt }}",
-    "total_posts": "{{ paginator.total_posts }}",
-    "posts": [
-    {%- for post in site.posts %}
-        {% assign title = post.title | escape %}
-        {% assign description = post.content | strip_html | strip_newlines | replace: " ", "" | replace: "	", "" | truncate: 120 | escape %}
-        {% assign content = post.content | strip_html | strip_newlines | strip | replace: " ", "" | replace: "	", "" %}
-        {% assign date = post.date | date_to_rfc822 %}
-        {% assign url = post.url %}
-
-        {% capture a_post %}
-        {
-            "title": "{{ title }}",
-            "description": "{{ description }}",
-            "content": "{{ content }}",
-            "date": "{{ date }}",
-            "url": "{{ url }}"
-        }
-        {% endcapture %}
-        
-        {{ a_post }}
-    {%- endfor %}
-    ]
-{% raw %}
-}
-{% endraw %}
