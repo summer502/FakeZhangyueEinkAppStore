@@ -23,6 +23,9 @@
         }
         {%- endcapture -%}
         {{ a_post }}
+        {%- if forloop.last == false -%}
+        ,
+        {%- endif -%}
     {%- endfor -%}
     ]
 }
