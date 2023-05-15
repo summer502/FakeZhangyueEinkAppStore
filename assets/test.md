@@ -1,6 +1,37 @@
 ---
-permalink: /testtest
 ---
+<table>
+    {% tablerow post in site.posts %}
+      {{ post.title }}
+    {% endtablerow %}
+</table>
+<hr>
+<table>
+    {% tablerow post in site.posts cols:3 %}
+    {{ post.title }}
+    {% endtablerow %}
+</table>
+<hr>
+{%- if site.author and site.author.size <= 5 -%}
+  Wow, {{ site.author }}, you have a long name!
+{%- else -%}
+  {%- assign username = site.author | slice: 6, 3 -%}
+  {{ username }}
+{%- endif -%}
+
+{% raw %}
+  In Handlebars, {{ this }} will be HTML-escaped, but
+  {{{ that }}} will not.
+{% endraw %}
+<hr>
+输出
+In Handlebars, {{ this }} will be HTML-escaped, but {{{ that }}} will not.
+<hr>
+<hr>
+
+
+
+
 将search.json文件添加到keep_files
 module Jekyll
 

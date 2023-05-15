@@ -1,4 +1,5 @@
 ---
+layout: null
 ---
 {%- assign version = 'v1.0.0' -%}
 {%- assign buildAt = site.time | date: "%Y%m%d%H%M%S" -%}
@@ -37,38 +38,3 @@
     </tr>
   {%- endfor -%}     
 </table>
-
-
-
-
-
-
-
-<table>
-    {% tablerow post in site.posts %}
-      {{ post.title }}
-    {% endtablerow %}
-</table>
-<hr>
-<table>
-    {% tablerow post in site.posts cols:3 %}
-    {{ post.title }}
-    {% endtablerow %}
-</table>
-<hr>
-{%- if site.author and site.author.size <= 5 -%}
-  Wow, {{ site.author }}, you have a long name!
-{%- else -%}
-  {%- assign username = site.author | slice: 6, 3 -%}
-  {{ username }}
-{%- endif -%}
-
-{% raw %}
-  In Handlebars, {{ this }} will be HTML-escaped, but
-  {{{ that }}} will not.
-{% endraw %}
-<hr>
-输出
-In Handlebars, {{ this }} will be HTML-escaped, but {{{ that }}} will not.
-<hr>
-<hr>
