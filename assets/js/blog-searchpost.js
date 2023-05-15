@@ -207,12 +207,21 @@ function getSearchEngine() {
     // 样式 完全不透明
     document.querySelector('.search .icon-loading').style.opacity = 1;
     // 搜索
-    searchForFullText(keyword, function doSerach(search_result_posts) {
-      // 样式 完全透明
-      document.querySelector('.search .icon-loading').style.opacity = 0;
-      // 渲染
-      renderDom(search_result_posts);
+    searchForFullText(keyword, function (search_result_posts) {
+      // doSerach
+      if (search_result_posts) {
+        // 样式 完全透明
+        document.querySelector('.search .icon-loading').style.opacity = 0;
+        // 渲染
+        renderDom(search_result_posts);
+      } else {
+        // 样式 完全透明
+        document.querySelector('.search .icon-loading').style.opacity = 0;
+        // 渲染
+        renderDom(null);
+      }
     }, function (error) {
+      // doError
       // 样式 完全透明
       document.querySelector('.search .icon-loading').style.opacity = 0;
       // 渲染
@@ -264,11 +273,11 @@ function getSearchEngine() {
 
         ul.appendChild(li);
       }
-      
+
       let div_search = ul_list_search.parentNode;
       ul_list_search.parentNode.removeChild(ul_list_search);
       div_search.appendChild(ul);
-    }else{
+    } else {
       ul_list_search.parentNode.removeChild(ul_list_search);
     }
   }

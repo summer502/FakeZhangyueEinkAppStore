@@ -193,6 +193,8 @@ function ajax(options, success, error) {
                     try {
                         result = JSON.parse(xmlHttp.responseText);
                     } catch (error) {
+                        console.error(error);
+                        console.error(xmlHttp.responseText);
                         result = xmlHttp.responseText;
                     }
                 } else if (dataType == "jsonp") {
