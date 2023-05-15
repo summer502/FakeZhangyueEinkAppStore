@@ -66,10 +66,10 @@
         };
         myblog.init();
     </script>
-    <script type="text/javascript" src="/assets/js/jquery.min.js?t={{ buildAt }}"></script>
-    <script type="text/javascript" src="/assets/js/blog-common.js?t={{ buildAt }}"></script>
-    <script type="text/javascript" src="/assets/js/main.js?t={{ buildAt }}"></script>
-    <script type="text/javascript" src="/assets/js/blog-searchpost.js?t={{ buildAt }}"></script>
+    <script type="text/javascript" src="{{ sitedir }}assets/js/jquery.min.js?t={{ buildAt }}"></script>
+    <script type="text/javascript" src="{{ sitedir }}assets/js/blog-common.js?t={{ buildAt }}"></script>
+    <script type="text/javascript" src="{{ sitedir }}assets/js/main.js?t={{ buildAt }}"></script>
+    <script type="text/javascript" src="{{ sitedir }}assets/js/blog-searchpost.js?t={{ buildAt }}"></script>
     {% if site.baidutongji %}
         {% include baidutongji.html %}
     {% endif %}
