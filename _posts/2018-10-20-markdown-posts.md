@@ -19,6 +19,7 @@ Posts should be named as `%yyyy-%mm-%dd-your-post-title-here.md`, and placed in 
 ## This is a sub-heading
 ### This is a sub-sub-heading
 
+
 <span class="color-blue">Some</span>
 <span class="color-green">cool</span>
 <span class="color-orange">colorful</span>
@@ -53,6 +54,7 @@ int main(void){
 **Here is a horizontal rule,**
 
 --------------
+
 
 **Here is a blockquote,**
 

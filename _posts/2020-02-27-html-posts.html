@@ -6,51 +6,30 @@ tags: [guide, html]
 author: 未知
 ---
 
-This post has been written in HTML. I'm too lazy to add content to it, but feel free to <a href="https://github.com/pro-panda/parchment">raise a PR</a> ;-)
-
-
-## 高亮代码片段
-Jekyll 自带语法高亮功能，你可以选择使用 Pygments 或 Rouge 两种工具中的一种。在文章中插入一段高亮代码非常容易，只需使用下面的 Liquid 标记：
-{% highlight ruby %}
-def show
-  @widget = Widget(params[:id])
-  respond_to do |format|
-    format.html # show.html.erb
-    format.json { render json: @widget }
-  end
-end
-{% endhighlight %}
-![有帮助的截图]({{ site.url }}/assets/screenshot.jpg)
-你可以直接 [下载 PDF]({{ site.url }}/assets/mydoc.pdf).
-
-
 <div id="home">
     <div id="main">
         <div id="mainContent">
             <div class="forFlow">
                 <div id="post_detail">
-
                     <div id="topics">
                         <div class="post">
-
                             <div class="postBody">
                                 <div id="cnblogs_post_body" class="blogpost-body cnblogs-markdown">
                                     <h3 id="1html的定义">1、HTML的定义</h3>
                                     <ul>
-                                        <li>HTML指的是<strong>超文本标记语言</strong>（Hyper Text Markup Language)，它是用来描述网页的一种语言。
-                                        </li>
+                                        <li>HTML指的是<strong>超文本标记语言</strong>（Hyper Text Markup Language)，它是用来描述网页的一种语言。</li>
                                         <li>HTML不是一种编程语言，而是一种标记语言（markup language）。</li>
                                     </ul>
                                     <h3 id="2html的基本结构">2、HTML的基本结构</h3>
                                     <pre><code>&lt;!DOCTYPE html&gt;
-&lt;html lang="en"&gt;
-&lt;head&gt;
-  &lt;meta charset="UTF-8"&gt;
-  &lt;title&gt;Document&lt;/title&gt;
-&lt;/head&gt;
-&lt;body&gt;&lt;/body&gt;
-&lt;/html&gt;
-</code></pre>
+                                    &lt;html lang="en"&gt;
+                                    &lt;head&gt;
+                                        &lt;meta charset="UTF-8"&gt;
+                                        &lt;title&gt;Document&lt;/title&gt;
+                                    &lt;/head&gt;
+                                    &lt;body&gt;&lt;/body&gt;
+                                    &lt;/html&gt;
+                                    </code></pre>
                                     <h4 id="21-doctype-html">2.1 <code>&lt;!DOCTYPE html&gt;</code></h4>
                                     <ul>
                                         <li><code>&lt;!DOCTYPE html&gt;</code>是html5标准网页声明,全称为Document Type HyperText
@@ -59,8 +38,7 @@ end
                                     </ul>
                                     <h4 id="22-documentcompatmode">2.2 <code>document.compatMode</code></h4>
                                     <ul>
-                                        <li><strong>BackCompat</strong>：怪异模式，浏览器使用自己的怪异模式解析渲染页面。---》这样会导致不同浏览器渲染的效果不一样
-                                        </li>
+                                        <li><strong>BackCompat</strong>：怪异模式，浏览器使用自己的怪异模式解析渲染页面。---》这样会导致不同浏览器渲染的效果不一样</li>
                                         <li><strong>CSS1Compat</strong>：标准模式，浏览器使用W3C的标准解析渲染页面。</li>
                                         <li>document.compatMode默认是BackCompat，所以html最好写上文档声明。</li>
                                     </ul>
@@ -71,11 +49,9 @@ end
                                     </ul>
                                     <h4 id="24-meta">2.4 <code>&lt;meta&gt;</code></h4>
                                     <ul>
-                                        <li>总共支持4个全局属性：<code>charset</code>，<code>http-equiv</code>，<code>name</code>，<code>content</code>
-                                        </li>
+                                        <li>总共支持4个全局属性：<code>charset</code>，<code>http-equiv</code>，<code>name</code>，<code>content</code></li>
                                         <li><code>charset</code>定义文档编码格式，防止解析时乱码</li>
-                                        <li><code>http-equiv</code>需要结合<code>content</code>属性来使用，以定义一个响应头字段的值。不过在HTML5中，已经不再用这个字段来描述响应头，它所支持的值也缩减为5个(<em>鉴于目前浏览器仍然支持HTML4，因此像expires、cache-control这样被HTML5舍弃的值仍然是有效的</em>)。
-                                        </li>
+                                        <li><code>http-equiv</code>需要结合<code>content</code>属性来使用，以定义一个响应头字段的值。不过在HTML5中，已经不再用这个字段来描述响应头，它所支持的值也缩减为5个(<em>鉴于目前浏览器仍然支持HTML4，因此像expires、cache-control这样被HTML5舍弃的值仍然是有效的</em>)。</li>
                                     </ul>
                                     <blockquote>
                                         <h6 id="html5的http-equiv包含以下几个值">HTML5的http-equiv包含以下几个值：</h6>
@@ -92,8 +68,8 @@ end
                                                 它的值必须与某个link或style标签的title一致，以指定该样式表作为当前文档的默认样式表。</li>
                                         </ol>
                                         <pre><code>&lt;meta http-equiv="default-style" content="main1"&gt;
-&lt;link rel="stylesheet" href="mystyle.css" title="main1"&gt;
-</code></pre>
+                                        &lt;link rel="stylesheet" href="mystyle.css" title="main1"&gt;
+                                        </code></pre>
                                         <ol start="4">
                                             <li><strong>x-ua-compatible</strong>，兼容性声明，指定所用浏览器的内核，规范要求此时content的值必须包含"IE=edge"。
                                             </li>
@@ -102,14 +78,13 @@ end
                                             </li>
                                         </ol>
                                         <pre><code>&lt;!--页面会在20秒后刷新--&gt;
-&lt;meta http-equiv="refresh" content="20"&gt;
-&lt;!--页面会在20秒后跳转到百度--&gt;
-&lt;meta http-equiv="refresh" content="20;url=https://www.baidu.com"&gt;
-</code></pre>
+                                        &lt;meta http-equiv="refresh" content="20"&gt;
+                                        &lt;!--页面会在20秒后跳转到百度--&gt;
+                                        &lt;meta http-equiv="refresh" content="20;url=https://www.baidu.com"&gt;
+                                        </code></pre>
                                     </blockquote>
                                     <ul>
-                                        <li><code>name</code>同http-equiv一样，name也需要配合content属性一起使用。与http-equiv不同的是，由name描述的属性与响应头的字段没有对应关系，它们更多的是描述文档本身。
-                                        </li>
+                                        <li><code>name</code>同http-equiv一样，name也需要配合content属性一起使用。与http-equiv不同的是，由name描述的属性与响应头的字段没有对应关系，它们更多的是描述文档本身。</li>
                                     </ul>
                                     <blockquote>
                                         <h6 id="name的常见取值包括">name的常见取值包括：</h6>
@@ -179,8 +154,8 @@ end
                                     </ul>
                                     <blockquote>
                                         <pre><code>&lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
-&lt;!--表示初始等于设备宽度，不缩放--&gt;
-</code></pre>
+                                        &lt;!--表示初始等于设备宽度，不缩放--&gt;
+                                        </code></pre>
                                     </blockquote>
                                     <h4 id="25-link">2.5 <code>&lt;link&gt;</code></h4>
                                     <ul>
@@ -201,26 +176,26 @@ end
                                         <li>模块标识符的解析<code>type="importmap"</code>，每一个页面最多只能有一个importmap</li>
                                     </ul>
                                     <pre><code>&lt;script type="importmap"&gt;
-{
-    "imports": { //作用于全局的映射
-        "moment": "/node_modules/moment/src/moment.js",
-        "moments/": "/node_modules/moments/src/"
-    },
-    "scopes": { //作用于局部映射。常用于在页面内使用同一模块的不同版本。
-        "/a/" : {
-            "moment": "/node_modules/moment/src/moment.js"
-        },
-        "/b/" : {
-            "moment": "https://cdn.example.com/moment/src/moment.js"
-        }
-    }
-}
-&lt;/script&gt;
-&lt;script type="module"&gt;
-    import moment from "moment"
-    import localeData from "moments/locale/zh-cn.js"
-&lt;/script&gt;
-</code></pre>
+                                    {
+                                        "imports": { //作用于全局的映射
+                                            "moment": "/node_modules/moment/src/moment.js",
+                                            "moments/": "/node_modules/moments/src/"
+                                        },
+                                        "scopes": { //作用于局部映射。常用于在页面内使用同一模块的不同版本。
+                                            "/a/" : {
+                                                "moment": "/node_modules/moment/src/moment.js"
+                                            },
+                                            "/b/" : {
+                                                "moment": "https://cdn.example.com/moment/src/moment.js"
+                                            }
+                                        }
+                                    }
+                                    &lt;/script&gt;
+                                    &lt;script type="module"&gt;
+                                        import moment from "moment"
+                                        import localeData from "moments/locale/zh-cn.js"
+                                    &lt;/script&gt;
+                                    </code></pre>
                                     <ul>
                                         <li>数据块<code>type="xxx"</code>，用户自定义，浏览器会忽略这个标签的解析。</li>
                                         <li>js加载属性：<code>&lt;script defer /&gt;</code>延迟加载<code>&lt;script async /&gt;</code>异步加载<br>
