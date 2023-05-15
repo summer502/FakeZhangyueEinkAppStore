@@ -1,5 +1,4 @@
 ---
-layout: default
 ---
 <table>
     {% tablerow post in site.posts %}
@@ -13,7 +12,7 @@ layout: default
     {% endtablerow %}
 </table>
 <hr>
-{%- if site.author and site.author.size > 5 -%}
+{%- if site.author and site.author.size <= 5 -%}
   Wow, {{ site.author }}, you have a long name!
 {%- else -%}
   {%- assign username = site.author | slice: 6, 3 -%}
