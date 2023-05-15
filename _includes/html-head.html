@@ -1,14 +1,14 @@
+{%- assign buildAt = site.time | date: "%Y%m%d%H%M%S" -%}
+{%- if page.title -%}
+    {%- assign title = page.title | append: " - " | append: site.title -%}
+    {%- assign desc = page.subtitle -%}
+{%- else -%}
+    {% assign title = site.title -%}
+    {% assign desc = site.subtitle -%}
+{%- endif -%}
+{%- assign sitedir = site.baseurl | append: "/" -%}
+{%- assign favicon_location = sitedir | append: site.favicon_location -%}
 <head>
-    {% if page.title %}
-        {% assign title = page.title | append: " - " | append: site.title %}
-        {% assign desc = page.subtitle %}
-    {% else %}
-        {% assign title = site.title %}
-        {% assign desc = site.subtitle %}
-    {% endif %}
-    {% assign sitedir = site.baseurl | append: "/" %}
-    {% assign favicon_location = sitedir | append: site.favicon_location %}
-
     <!-- meta -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -48,7 +48,6 @@
             siteUrl: "{{ site.url }}",
             baseurl: '{{ site.baseurl }}',
             buildAt: '{{ buildAt }}',
-            title: '{{ site.title }}',
             author: '{{ site.author }}',
             choose: false,
             init: function (flag) {
@@ -65,11 +64,11 @@
 
             }
         };
-        myblog.init()
+        myblog.init();
     </script>
-    {% if site.baidutongji %}
-        {% include baidutongji.html %}
-    {% endif %}
+    {%- if site.baidutongji -%}
+        {%- include baidutongji.html -%}
+    {%- endif -%}
     <script type="text/javascript" src="assets/js/jquery.min.js?t={{ buildAt }}"></script>
     <script type="text/javascript" src="assets/js/blog-common.js?t={{ buildAt }}"></script>
     <script type="text/javascript" src="assets/js/main.js?t={{ buildAt }}"></script>

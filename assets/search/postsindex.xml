@@ -1,23 +1,22 @@
 ---
 layout: null
 ---
-{% assign version = 'v1.0.0' %}
+{%- assign version = 'v1.0.0' -%}
+{%- assign buildAt = site.time | date: "%Y%m%d%H%M%S" -%}
 <?xml version="1.0" encoding="UTF-8"?>
 <post_storage>
   <version>{{ version }}</version>
   <buildAt>{{ buildAt }}</buildAt>
-  <total_posts>{{ paginator.total_posts }}</total>
-  <total_posts2>{{ total_posts_counter }}</total_posts2>
   <total_posts3>{{ site.posts.size }}</total_posts3>
   <posts>
-  {% assign total_posts_counter = 1 %}
-  {%- for post in site.posts %}
-    {% assign total_posts_counter = total_posts_counter | plus: 1 %}
-    {% assign title = post.title | escape %}
-    {% assign description = post.content | strip_html | strip_newlines | replace: " ", "" | replace: "	", "" | truncate: 120 | escape %}
-    {% assign content = post.content | strip_html | strip_newlines | strip | replace: " ", "" | replace: "	", "" %}
-    {% assign date = post.date | date_to_rfc822 %}
-    {% assign url = post.url %}
+  {%- assign total_posts_counter = 1 -%}
+  {%- for post in site.posts -%}
+    {%- assign total_posts_counter = total_posts_counter | plus: 1 -%}
+    {%- assign title = post.title | escape -%}
+    {%- assign description = post.content | strip_html | strip_newlines | replace: " ", "" | replace: "	", "" | truncate: 120 | escape -%}
+    {%- assign content = post.content | strip_html | strip_newlines | strip | replace: " ", "" | replace: "	", "" -%}
+    {%- assign date = post.date | date_to_rfc822 -%}
+    {%- assign url = post.url %}
     <post>
       <title>{{ title }}</title>
       <description>{{ description }}</description>
@@ -25,8 +24,10 @@ layout: null
       <date>{{ date }}</date>
       <url>{{ url }}</url>
     </post>
-  {%- endfor %}
+  {%- endfor -%}
   </posts>
+  <total_posts>{{ paginator.total_posts }}</total_posts>
+  <total_posts2>{{ total_posts_counter }}</total_posts2>
 </post_storage>
 
 

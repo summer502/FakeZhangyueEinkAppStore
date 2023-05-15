@@ -13,7 +13,6 @@
         {% assign content = post.content | strip_html | strip_newlines | strip | replace: " ", "" | replace: "	", "" %}
         {% assign date = post.date | date_to_rfc822 %}
         {% assign url = post.url %}
-
         {% capture a_post %}
         {
             "title": "{{ title }}",
@@ -23,7 +22,6 @@
             "url": "{{ url }}"
         }
         {% endcapture %}
-        
         {{ a_post }}
     {%- endfor %}
     ]
