@@ -28,7 +28,7 @@ layout: null
     {%- assign description = post.content | strip_html | strip_newlines | strip | replace: " ", "" | replace: ":", "" | replace: "\", "" | replace: '"', '' | truncate: 120 | escape -%}
     {%- assign content = post.content | strip_html | strip_newlines | strip | replace: " ", "" | replace: ":", "" | replace: "\", "" | replace: '"', '' -%}
     {%- assign date = post.date | date_to_rfc822 -%}
-    {%- assign url = post.url -%}
+    {%- assign url = site.baseurl | append: post.url -%}
     <tr>
       <td>{{ title }}</td>
       <td>{{ description }}</td>

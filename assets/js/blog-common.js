@@ -1,3 +1,17 @@
+function addEventListener(el, eventName, func, useCapture) {
+    if (window.attachEvent) {
+        el.attachEvent('on' + eventName, func)
+    } else if (window.addEventListener) {
+        if (useCapture != undefined && useCapture === true) {
+            el.addEventListener(eventName, func, true)
+        } else {
+            el.addEventListener(eventName, func, false)
+        }
+    } else {
+
+    }
+}
+
 // 判断浏览器是否支持 Storage 存储对象
 // sessionStorage（会话存储）
 // localStorage（本地存储）
