@@ -1,23 +1,35 @@
-myblog.addEventListener=addEventListener;
-// 判断浏览器是否支持 Storage 存储对象
-myblog.isSupportWebStorage = isSupportWebStorage();
-myblog.webStorage_key_prefix='blog_'+ myblog.author + '_' + myblog.baseurl + '_';
-// 使用 localStorage
-myblog.webStorage = getWebStorage("localStorage");
-myblog.serverStorage = getServerStorage();
 
-
-
-
-
-
-
-
-
-
-
-function searchEngine() {
+function getSearchEngine() {
   let myblog;
+
+  function init(myBlog) {
+    // 搜索输入框
+    let searchInputElement = document.getElementById('search-input');
+    if (!searchInputElement) {
+      return;
+    } else {
+      myblog = myBlog;
+      myblog.searchInputElement = searchInputElement;
+    }
+
+    addEventListener();
+  }
+
+  function addEventListener() {
+    if (myblog.searchInputElement) {
+      myblog.addEventListener(myblog.searchInputElement, 'input', function (event) {
+        search(event.target.value)
+      });
+
+      myblog.addEventListener(myblog.searchInputElement, 'compositionstart', function (event) {
+
+      });
+
+      myblog.addEventListener(myblog.searchInputElement, 'compositionend', function (event) {
+        search(event.target.value)
+      });
+    }
+  }
 
   // trimKeyword
   function trimKeyword(keyword) {
@@ -128,8 +140,6 @@ function searchEngine() {
     var url = myblog.baseurl + searchindexUrl + '?t=' + myblog.buildAt;
     var expires = 0;
 
-
-
     if (!window.localStorage) {
       // 浏览器不支持 localstorage，将会每次都从服务端请求文章数据
       // get请求
@@ -192,31 +202,74 @@ function searchEngine() {
     }
   }
 
-  function init(myBlog) {
-    // 搜索输入框
-    let searchInputElement = document.getElementById('search-input');
-    if (!searchInputElement) {
-      return;
-    } else {
-      myblog = myBlog;
-      myblog.searchInputElement = searchInputElement;
-    }
+  // search
+  function search(keyword) {
+    // 样式 完全不透明
+    document.querySelector('.search .icon-loading').style.opacity = 1;
+    // 搜索
+    searchForFullText(keyword, function doSerach(search_result_posts) {
+      // 样式 完全透明
+      document.querySelector('.search .icon-loading').style.opacity = 0;
+      // 渲染
+      renderDom(search_result_posts);
+    }, function (error) {
+      // 样式 完全透明
+      document.querySelector('.search .icon-loading').style.opacity = 0;
+      // 渲染
+      renderDom(null);
+    })
+  }
 
-    if (myblog.searchInputElement) {
-      myblog.addEventListener(myblog.searchInputElement, 'input', function (event) {
-        if (!inputLock) {
-          search(event.target.value)
-        }
-      })
+  // renderDom
+  function renderDom(showPosts) {
+    let ul_list_search = document.querySelector('.search .list-search');
+    if (showPosts) {
+      // 渲染
+      let ul = document.createElement("ul");
+      ul.className = "list-search";
+      for (let i = 0; i < showPosts.length; i++) {
+        let post = showPosts[i];
 
-      myblog.addEventListener(searchInputElement, 'compositionstart', function (event) {
-        inputLock = true
-      })
+        let title = post.title;
+        let content = post.content;
+        let date = post.date;
+        let url = post.url;
 
-      myblog.addEventListener(searchInputElement, 'compositionend', function (event) {
-        inputLock = false
-        search(event.target.value)
-      })
+
+        let p_title = document.createElement("p");
+        p_title.className = "title";
+        let text_node_title = document.createTextNode(title);
+        p_title.appendChild(text_node_title);
+
+        let p_content = document.createElement("p");
+        p_content.className = "content";
+        let text_node_content = document.createTextNode(content);
+        p_content.appendChild(text_node_content);
+
+        let a = document.createElement("a");
+        a.setAttribute("href", url);
+        a.appendChild(p_title);
+        a.appendChild(p_content);
+
+        let li = document.createElement('li');
+        location.appendChild(a);
+        // li.innerHTML = '<ul class="list-search">' +
+        //   '<li hidden>' +
+        //   '<a href="' + url + '">' +
+        //   '<p class="title">' + title + '</p>' +
+        //   '<p class="content">' + content + '</p>' +
+        //   '</a>' +
+        //   '</li>' +
+        //   '</ul>';
+
+        ul.appendChild(li);
+      }
+      
+      let div_search = ul_list_search.parentNode;
+      ul_list_search.parentNode.removeChild(ul_list_search);
+      div_search.appendChild(ul);
+    }else{
+      ul_list_search.parentNode.removeChild(ul_list_search);
     }
   }
 
@@ -227,180 +280,32 @@ function searchEngine() {
   return searchEngine;
 }
 
-// search
-function search(keyword) {
-  // 样式 完全不透明
-  document.querySelector('.search .icon-loading').style.opacity = 1;
-  // 搜索
-  searchForFullText(keyword);
-}
-
-// doError
-function doError(error) {
-  console.error('全文检索数据加载失败...')
-  callback ? callback(null) : ''
-}
-
-// doSerach
-function doSerach(search_result_posts) {
-  //   "posts": [
-        //     {
-        //       "title": "学习Liquid",
-        //       "description": "",
-        //       "content": "",
-        //       "date": "Mon, 15 May 2023 00:00:00 +0000",
-        //       "url": "/FakeZhangyueEinkAppStore/2023-05-15-%E5%AD%A6%E4%B9%A0Liquid/"
-        //     }
-        //   ]
+myblog.addEventListener = addEventListener;
+myblog.webStorage_key_prefix = 'blog_' + myblog.author + '_' + myblog.baseurl + '_';
+// 判断浏览器是否支持 Storage 存储对象
+myblog.isSupportWebStorage = isSupportWebStorage();
+// 使用 localStorage
+myblog.webStorage = getWebStorage("localStorage");
+myblog.serverStorage = getServerStorage();
+myblog.searchEngine = getSearchEngine();
+myblog.searchEngine.init(myblog);
 
 
-  // 样式 完全透明
-  document.querySelector('.search .icon-loading').style.opacity = 0;
-  // 渲染
-  renderDom(search_result_posts);
-}
-
-// renderDom
-function renderDom(showPosts) {
-  if (showPosts) {
-// 渲染
-
-  }
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-function callback(data) {
-  titles = parseTitle();
-  contents = parseContent(data);
-  search(input.value);
-}
 
 function search(keyword) {
-
-  // <>& 替换
-  keyword = trimKeyword(keyword);
-
-  let doms = document.querySelectorAll('.search .list-search li')
-  for (let i = 0; i < doms.length; i++) {
-    let title = titles[i]
-    let content = contents[i]
-    let dom_li = doms[i]
+  let li = document.querySelectorAll('.search .list-search li')
+  for (let i = 0; i < li.length; i++) {
+    let dom_li = li[i]
     let dom_title = dom_li.querySelector('.title')
     let dom_content = dom_li.querySelector('.content')
-
     dom_title.innerHTML = title
     dom_content.innerHTML = ''
-
-    // 空字符隐藏
-    if (keyword == '') {
-      dom_li.setAttribute('hidden', true)
-      continue
-    }
-    let hide = true
-
-    let hit = false;
-    let search_result_posts = [];
-    let showStrlength = 100;
-    let showTitle;
-    let showContent;
-
-    let keyword_patt_i = new RegExp(blog.encodeRegChar(keyword), 'i');
-    let keyword_patt_g_i = new RegExp(blog.encodeRegChar(keyword), 'gi');
-
-    // 检测 title 是否匹配正则模式
-    if (keyword_patt_g_i.test(title)) {
-      // title 全局替换
-      showTitle = title.replace(keyword_patt_g_i, '<span class="hint">' + keyword + '</span>');
-      hide = false
-      hit = true;
-    } else {
-      showTitle = title;
-    }
-
-    // 检索 content 中的 keyword
-    let result = keyword_patt_i.exec(content);
-    if (result) {
-      // 检索时找到第一个 keyword 的位置
-      let index = result.index;
-
-      let begin = (index - 10) < 0 ? 0 : index - 10;
-      let end = begin + showStrlength;
-      showContent = content.substring(begin, end);
-      // content 全局替换
-      showContent = showContent.replace(keyword_patt_g_i, '<span class="hint">' + keyword + '</span>');
-      showContent = showContent + '...';
-      hide = false
-      hit = true;
-    } else {
-      //  content 未命中时
-      if (hit) {
-        // 标题命中，则 content 直接展示
-        let begin = 0;
-        let end = begin + showStrlength;
-        showContent = content.substring(begin, end);
-        showContent = showContent + '...';
-      }
-    }
-
-    if (hit) {
-      let post = {
-        "title": showTitle,
-        "content": showContent,
-        "date": date,
-        "url": url
-      };
-      search_result_posts.push(post);
-    }
-
-    dom_title.innerHTML = showTitle;
-    dom_content.innerHTML = showContent;
     if (hide) {
       dom_li.setAttribute('hidden', true)
     } else {
       dom_li.removeAttribute('hidden')
     }
   }
-}
-
-
-
-
-// 标题等信息
-let titles = [];
-// 正文内容
-let contents = [];
-// 解析 json 格式的 posts 对象
-function parseTitleForJson(posts) {
-  var posts_sample = [
-    {
-      "title": "{{ title }}",
-      "description": "{{ description }}",
-      "content": "{{ content }}",
-      "date": "{{ date }}",
-      "url": "{{ url }}"
-    }];
-  let arr = [];
-  for (let i = 0; i < posts.length; i++) {
-    arr.push(posts[i].title);
-  }
-  return arr;
 }
 
 function parseTitle() {
@@ -412,16 +317,7 @@ function parseTitle() {
   return arr;
 }
 
-function parseContent(data) {
-  let arr = []
-  let root = document.createElement('div')
-  root.innerHTML = data
-  let doms = root.querySelectorAll('li')
-  for (let i = 0; i < doms.length; i++) {
-    arr.push(doms[i].innerHTML)
-  }
-  return arr
-}
+
 //////////////////////////////////////////////////////////////////////////////////////////
 // var removeKey = document.getElementById("removeKey").value;
 // removeKey.value = "";
