@@ -285,7 +285,7 @@ myblog.webStorage_key_prefix = 'blog_' + myblog.author + '_' + myblog.baseurl + 
 // 判断浏览器是否支持 Storage 存储对象
 myblog.isSupportWebStorage = isSupportWebStorage();
 // 使用 localStorage
-myblog.webStorage = getWebStorage("localStorage");
+myblog.webStorage = getWebStorage("sessionStorage");
 myblog.serverStorage = getServerStorage();
 myblog.searchEngine = getSearchEngine();
 myblog.searchEngine.init(myblog);

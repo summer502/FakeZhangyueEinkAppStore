@@ -28,8 +28,8 @@ function getWebStorage(storageName) {
     var storage;
     if (storageName == "sessionStorage") {
         storage = window.sessionStorage;
-    } else if (storage == "localStorage") {
-        storageName = window.localStorage;
+    } else if (storageName == "localStorage") {
+        storage = window.localStorage;
     } else {
         storage = window.sessionStorage;
     }
