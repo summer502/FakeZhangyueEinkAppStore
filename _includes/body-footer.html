@@ -2,6 +2,7 @@
     {% if page.url == "/" and site.footer_only_homepage %}
         <hr>
         <span>{{ site.footer_text }}</span>
+        <span>{{ site.author }}</span>
         <span>&nbsp;&nbsp;</span>
         <a href="{{ site.jekyll_theme_author_url }}">{{ site.jekyll_theme_author_text }}</a>
     {% else %}
