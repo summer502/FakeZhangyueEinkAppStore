@@ -6,6 +6,7 @@ tags: [guide, html]
 author: 未知
 ---
 <div><span>转载：</span><a href="https://www.cnblogs.com/value410781/p/17371567.html">ALL|ONE</a></div>
+<hr>
 <div id="home">
     <div id="main">
         <div id="mainContent">
@@ -29,14 +30,14 @@ author: 未知
                                     </ul>
                                     <h3 id="2html的基本结构">2、HTML的基本结构</h3>
                                     <pre><code>&lt;!DOCTYPE html&gt;
-                                    &lt;html lang="en"&gt;
-                                    &lt;head&gt;
-                                        &lt;meta charset="UTF-8"&gt;
-                                        &lt;title&gt;Document&lt;/title&gt;
-                                    &lt;/head&gt;
-                                    &lt;body&gt;&lt;/body&gt;
-                                    &lt;/html&gt;
-                                    </code></pre>
+&lt;html lang="en"&gt;
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;title&gt;Document&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
                                     <h4 id="21-doctype-html">2.1 <code>&lt;!DOCTYPE html&gt;</code></h4>
                                     <ul>
                                         <li><code>&lt;!DOCTYPE html&gt;</code>是html5标准网页声明,全称为Document Type HyperText
@@ -75,8 +76,8 @@ author: 未知
                                                 它的值必须与某个link或style标签的title一致，以指定该样式表作为当前文档的默认样式表。</li>
                                         </ol>
                                         <pre><code>&lt;meta http-equiv="default-style" content="main1"&gt;
-                                        &lt;link rel="stylesheet" href="mystyle.css" title="main1"&gt;
-                                        </code></pre>
+&lt;link rel="stylesheet" href="mystyle.css" title="main1"&gt;
+</code></pre>
                                         <ol start="4">
                                             <li><strong>x-ua-compatible</strong>，兼容性声明，指定所用浏览器的内核，规范要求此时content的值必须包含"IE=edge"。
                                             </li>
@@ -85,10 +86,10 @@ author: 未知
                                             </li>
                                         </ol>
                                         <pre><code>&lt;!--页面会在20秒后刷新--&gt;
-                                        &lt;meta http-equiv="refresh" content="20"&gt;
-                                        &lt;!--页面会在20秒后跳转到百度--&gt;
-                                        &lt;meta http-equiv="refresh" content="20;url=https://www.baidu.com"&gt;
-                                        </code></pre>
+&lt;meta http-equiv="refresh" content="20"&gt;
+&lt;!--页面会在20秒后跳转到百度--&gt;
+&lt;meta http-equiv="refresh" content="20;url=https://www.baidu.com"&gt;
+</code></pre>
                                     </blockquote>
                                     <ul>
                                         <li><code>name</code>同http-equiv一样，name也需要配合content属性一起使用。与http-equiv不同的是，由name描述的属性与响应头的字段没有对应关系，它们更多的是描述文档本身。</li>
@@ -161,8 +162,8 @@ author: 未知
                                     </ul>
                                     <blockquote>
                                         <pre><code>&lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
-                                        &lt;!--表示初始等于设备宽度，不缩放--&gt;
-                                        </code></pre>
+&lt;!--表示初始等于设备宽度，不缩放--&gt;
+</code></pre>
                                     </blockquote>
                                     <h4 id="25-link">2.5 <code>&lt;link&gt;</code></h4>
                                     <ul>
@@ -183,26 +184,26 @@ author: 未知
                                         <li>模块标识符的解析<code>type="importmap"</code>，每一个页面最多只能有一个importmap</li>
                                     </ul>
                                     <pre><code>&lt;script type="importmap"&gt;
-                                    {
-                                        "imports": { //作用于全局的映射
-                                            "moment": "/node_modules/moment/src/moment.js",
-                                            "moments/": "/node_modules/moments/src/"
-                                        },
-                                        "scopes": { //作用于局部映射。常用于在页面内使用同一模块的不同版本。
-                                            "/a/" : {
-                                                "moment": "/node_modules/moment/src/moment.js"
-                                            },
-                                            "/b/" : {
-                                                "moment": "https://cdn.example.com/moment/src/moment.js"
-                                            }
-                                        }
-                                    }
-                                    &lt;/script&gt;
-                                    &lt;script type="module"&gt;
-                                        import moment from "moment"
-                                        import localeData from "moments/locale/zh-cn.js"
-                                    &lt;/script&gt;
-                                    </code></pre>
+{
+    "imports": { //作用于全局的映射
+        "moment": "/node_modules/moment/src/moment.js",
+        "moments/": "/node_modules/moments/src/"
+    },
+    "scopes": { //作用于局部映射。常用于在页面内使用同一模块的不同版本。
+        "/a/" : {
+            "moment": "/node_modules/moment/src/moment.js"
+        },
+        "/b/" : {
+            "moment": "https://cdn.example.com/moment/src/moment.js"
+        }
+    }
+}
+&lt;/script&gt;
+&lt;script type="module"&gt;
+    import moment from "moment"
+    import localeData from "moments/locale/zh-cn.js"
+&lt;/script&gt;
+</code></pre>
                                     <ul>
                                         <li>数据块<code>type="xxx"</code>，用户自定义，浏览器会忽略这个标签的解析。</li>
                                         <li>js加载属性：<code>&lt;script defer /&gt;</code>延迟加载<code>&lt;script async /&gt;</code>异步加载<br>
@@ -461,6 +462,78 @@ author: 未知
                                         <li>Ogg = Ogg 文件使用 Theora 视频编解码器和 Vorbis音频编解码器</li>
                                     </ul>
                                 </div>
+                            </div>
+                        </div>
+                    </div><!--end: topics 文章、评论容器-->
+                </div>
+            </div><!--end: forFlow -->
+        </div><!--end: mainContent 主体内容容器-->
+    </div><!--end: main -->
+</div><!--end: home 自定义的最大容器 -->
+<hr>
+<div id="home">
+    <div id="main">
+        <div id="mainContent">
+            <div class="forFlow">
+                <div id="post_detail">
+                    <div id="topics">
+                        <div class="post">
+                            <h1 class="postTitle">
+                                <a id="cb_post_title_url" class="postTitle2 vertical-middle"
+                                    href="https://www.cnblogs.com/value410781/articles/17382239.html">
+                                    <span role="heading" aria-level="2">Part.2 HTML文件加载、解析顺序</span>
+                                </a>
+                            </h1>
+                            <div class="clear"></div>
+                            <div class="postBody">
+                                <div id="cnblogs_post_body" class="blogpost-body cnblogs-markdown">
+                                    <ul>
+                                        <li><strong>加载：下载代码</strong></li>
+                                        <li><strong>解析：运行代码</strong></li>
+                                    </ul>
+                                    <hr>
+                                    <h3 id="1-js脚本--因为js修改dom-所以需要先js解析-">1. JS脚本 ( 因为js修改DOM, 所以需要先js解析 )</h3>
+                                    <p>script标签: 阻塞html文档的解析, 直到脚本执行完<br>
+                                        外引js: 先网络请求,加载js, 再阻塞html文档的解析, 直到脚本执行完</p>
+                                    <h3 id="2-css--js有可能依赖样式如var-aidwidth-需要先css解析-">2. CSS ( js有可能依赖样式,如var
+                                        a=$('#id').width() 需要先css解析 )</h3>
+                                    <p>Firefox 所有css阻塞js脚本<br>
+                                        chrome 脚本访问css时, 阻塞这个js脚本</p>
+                                    <h3 id="3-阻塞优先级-css--js--html">3. 阻塞优先级: CSS &gt; JS &gt; HTML</h3>
+                                    <h3 id="4-预解析">4. 预解析</h3>
+                                    <p>浏览器多线程异步优先解析script link 标签, 并加载这些资源. 就是优先加载外引js css</p>
+                                    <h3 id="5-chrome网页加载顺序">5. chrome网页加载顺序:</h3>
+                                    <blockquote>
+                                        <ol>
+                                            <li>浏览器一边下载html, 一边开始从上往下顺序解析</li>
+                                            <li>预解析, 下载js css</li>
+                                            <li>遇到js脚本, script标签, 阻塞html解析, 由js引擎解析js代码</li>
+                                            <li>js代码中访问了css, 阻塞这个脚本, 优先css</li>
+                                            <li>以上head里的js css 解析完成, 解析body中html</li>
+                                            <li>运行body最后的js脚本 script标签</li>
+                                            <li>进行DOM渲染和Render树渲染：</li>
+                                        </ol>
+                                        <blockquote>
+                                            <ul>
+                                                <li>获取html并解析为Dom树</li>
+                                                <li>解析css并形成一个cssom（css树）</li>
+                                                <li>将cssom和dom合并成渲染树（render树）</li>
+                                                <li>进行布局（layout）</li>
+                                                <li>进行绘制（painting）</li>
+                                                <li>回流重绘（回流必将引起重绘，重绘不一定引起回流）</li>
+                                            </ul>
+                                        </blockquote>
+                                    </blockquote>
+                                    <h3 id="6-js延迟加载">6. js延迟加载</h3>
+                                    <ul>
+                                        <li>js加载属性：<code>&lt;script defer /&gt;</code>延迟加载；<code>&lt;script async /&gt;</code>异步加载
+                                        </li>
+                                        <li>两者都只适用于外部脚本<br>
+                                            <img src="../assets/downloads/js加载属性.png" alt="image" loading="lazy">
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="clear"></div>
                             </div>
                         </div>
                     </div><!--end: topics 文章、评论容器-->
