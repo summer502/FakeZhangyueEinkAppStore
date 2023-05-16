@@ -3,12 +3,12 @@ layout: default
 title: About Me
 permalink: /about
 ---
-{{ site.url }}{{ site.baseurl }}{{ page.url }} 
+
 <div class="page-title">
 {{page.title}}
 </div>
 <div class="content">
-<img class="profile-picture" src="{{site.baseurl}}/{{site.profile-picture}}">
+<img class="profile-picture" src="{{site.baseurl}}/assets/downloads/profile.png">
 </div>
 I'm Dilbert. I've been working as a Software Engineer for over 30 years. I like to innovate to solve challenging problems using technology. I work with a great Engineering team, but we have a good-for-nothing and clueless manager, who can be replaced with a monkey and the change would be for the better.
 

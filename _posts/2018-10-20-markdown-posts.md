@@ -77,4 +77,4 @@ for version control using Git
 
 
 **Here is an image,**<br>
-![](../assets/autumn.jpg)
+![](../assets/downloads/autumn.jpg)

@@ -301,30 +301,30 @@ myblog.searchEngine.init(myblog);
 
 
 
-function search(keyword) {
-  let li = document.querySelectorAll('.search .list-search li')
-  for (let i = 0; i < li.length; i++) {
-    let dom_li = li[i]
-    let dom_title = dom_li.querySelector('.title')
-    let dom_content = dom_li.querySelector('.content')
-    dom_title.innerHTML = title
-    dom_content.innerHTML = ''
-    if (hide) {
-      dom_li.setAttribute('hidden', true)
-    } else {
-      dom_li.removeAttribute('hidden')
-    }
-  }
-}
+// function search(keyword) {
+//   let li = document.querySelectorAll('.search .list-search li')
+//   for (let i = 0; i < li.length; i++) {
+//     let dom_li = li[i]
+//     let dom_title = dom_li.querySelector('.title')
+//     let dom_content = dom_li.querySelector('.content')
+//     dom_title.innerHTML = title
+//     dom_content.innerHTML = ''
+//     if (hide) {
+//       dom_li.setAttribute('hidden', true)
+//     } else {
+//       dom_li.removeAttribute('hidden')
+//     }
+//   }
+// }
 
-function parseTitle() {
-  let arr = [];
-  let doms = document.querySelectorAll('.search .list-search .title');
-  for (let i = 0; i < doms.length; i++) {
-    arr.push(doms[i].innerHTML);
-  }
-  return arr;
-}
+// function parseTitle() {
+//   let arr = [];
+//   let doms = document.querySelectorAll('.search .list-search .title');
+//   for (let i = 0; i < doms.length; i++) {
+//     arr.push(doms[i].innerHTML);
+//   }
+//   return arr;
+// }
 
 
 //////////////////////////////////////////////////////////////////////////////////////////

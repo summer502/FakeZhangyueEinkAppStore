@@ -50,6 +50,3 @@ sass:
 # 百度统计
 baidutongji: true
 
-# 其他页面的配置
-profile-picture: assets/profile.png
-
