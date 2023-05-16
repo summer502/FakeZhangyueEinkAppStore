@@ -8,31 +8,31 @@ layout: default
 
 <div class="content">
     <div class="page-subtitle">
-        {% if page.author %}
-            {% assign author = page.author %}
-        {% else %}
-            {% assign author = site.author %}
-        {% endif %}
-        {% if page.date %}
+        {%- if page.author -%}
+            {%- assign author = page.author -%}
+        {%- else -%}
+            {%- assign author = site.author -%}
+        {%- endif -%}
+        {%- if page.date -%}
             <div class="post-author">
                 <span>{{ author }} 于 {{ page.date | date: "%Y-%m-%d" }} 发布</span>
-                {%- if site.baidutongji %}
+                {%- if site.baidutongji -%}
                 <span>&nbsp;&nbsp;</span>
                 <span>浏览量</span><span id="value_page_pv"></span>
-                {% endif %}
+                {%- endif -%}
             </div>
-        {% endif %}
-        {% for tag in page.tags %}
-        {% if page.tags.first == tag %}
+        {%- endif -%}
+        {%- for tag in page.tags -%}
+            {%- if page.tags.first == tag -%}
             <b>[</b>
-            {% endif %}
+            {%- endif -%}
             <a href="{{ site.baseurl }}/tags/#{{ tag }}" title="{{ tag }}">{{ tag }}</a>
-            {% if page.tags.last == tag %}
-                <b>]</b>
-            {% else %}
-                ,
-            {% endif %}
-        {% endfor %}
+            {%- if page.tags.last == tag -%}
+            <b>]</b>
+            {%- else -%}
+            ,
+            {%- endif -%}
+        {%- endfor -%}
     </div>
     <hr>
 
