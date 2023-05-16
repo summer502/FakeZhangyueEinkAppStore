@@ -5,24 +5,24 @@
     </a>
 
     <ul class="pull-right">
-        {% for x in site.navbar %}
+        {%- for x in site.navbar -%}
         <li class="pull-left">
-            {% if x.absolute-link %}
-                {% assign x-url = x.absolute-link %}
-            {% else %}
-                {% assign x-url = site.baseurl | append: "/" | append: x.link %}
-            {% endif %}
-            {% if x.target %}
-                {% capture x-target %}
+            {%- if x.absolute-link -%}
+                {%- assign x-url = x.absolute-link -%}
+            {%- else -%}
+                {%- assign x-url = site.baseurl | append: "/" | append: x.link -%}
+            {%- endif -%}
+            {%- if x.target -%}
+                {%- capture x-target -%}
                 target="{{ x.target }}"
-                {% endcapture %}
-            {% endif %}
+                {%- endcapture -%}
+            {%- endif -%}
             <a href="{{ x-url }}" {{ x-target }}>{{ x.name }}</a>
-            {% if forloop.last == false %}
+            {%- if forloop.last == false -%}
                 /
-            {% endif %}
+            {%- endif -%}
         </li>
-        {% endfor %}
+        {%- endfor -%}
     </ul>
 
     <hr>
