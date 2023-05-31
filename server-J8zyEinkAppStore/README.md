@@ -6,6 +6,59 @@
 - Netty 4.1
 - Maven (>=3.3.3)
 
+```
+CONNECT www.hjkalhfka.jkhfk.com:8900 HTTP/1.1
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:109.0) Gecko/20100101 Firefox/110.0
+Proxy-Connection: keep-alive
+Connection: keep-alive
+Host: www.hjkalhfka.jkhfk.com:8900
+
+```
+```
+HTTP/1.1 501
+Content-Type: text/html;charset=utf-8
+Content-Language: en
+Content-Length: 443
+Date: Wed, 17 May 2023 06:15:10 GMT
+Connection: close
+
+        <!doctype html><html lang="en"><head><title>HTTP Status 501 鈥?Not Implemented</title><style type="text/css">body {font-family:Tahoma,Arial,sans-serif;} h1, h2, h3, b {color:white;background-color:#525D76;} h1 {font-size:22px;} h2 {font-size:16px;} h3 {font-size:14px;} p {font-size:12px;} a {color:black;} .line {height:1px;background-color:#525D76;border:none;}</style></head><body><h1>HTTP Status 501 鈥?Not Implemented</h1></body></html>
+
+```
+```
+GET ws://websocket.example.com/ HTTP/1.1
+Host: websocket.example.com
+Upgrade: websocket
+Connection: Upgrade
+Origin: http://example.com
+Sec-WebSocket-Key:pAloKxsGSHtpIHrJdWLvzQ==
+Sec-WebSocket-Version:13
+
+```
+```
+HTTP/1.1 101 Switching Protocols
+Upgrade: websocket
+Connection: Upgrade
+Sec-WebSocket-Accept: nRu4KAPUPjjWYrnzxDVeqOxCvlM=
+
+```
+Tomcat 在方法org.apache.catalina.connector.CoyoteAdapter#postParseRequest中对CONNECT判断
+```java
+// CoyoteAdapter
+
+        // Filter CONNECT method
+        if (req.method().equalsIgnoreCase("CONNECT")) {
+            response.sendError(HttpServletResponse.SC_NOT_IMPLEMENTED, sm.getString("coyoteAdapter.connect"));
+        } else {
+```
+```java
+// HttpServletResponse
+
+    /**
+     * Status code (501) indicating the HTTP server does not support the functionality needed to fulfill the request.
+     */
+    int SC_NOT_IMPLEMENTED = 501;
+```
 ## 步骤：  
 1. 下载和安装 jdk17  
 2. 进入"/FakeZhangyueEinkAppStore/server-J8zyEinkAppStore"这个目录，构建项目  
