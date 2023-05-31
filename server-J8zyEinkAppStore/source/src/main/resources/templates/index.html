@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Welcome to FakeZhangyueEinkAppStore!</title>
+    <style>
+        html {
+            color-scheme: light dark;
+        }
+
+        body {
+            width: 50em;
+            margin: 0 auto;
+            font-family: Tahoma, Verdana, Arial, sans-serif;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Welcome to FakeZhangyueEinkAppStore!</h1>
+    <p><img src="/images/32x32.png" alt=""><a href="/EinkAppStore">view-file</a></p>
+    <p><img src="/images/32x32.png" alt=""><a href="/EinkAppStore/uploadapp">upload-file</a></p>
+    <p><img src="/images/32x32.png" alt="">时间：<span id="result-date"></span>&nbsp;&nbsp;连接数：<span
+            id="result-connections"></span>&nbsp;&nbsp;请求数：<span id="result-requests"></span></p>
+    <p><img src="/images/32x32.png" alt="">操作系统：<span id="result-platform"></span>&nbsp;&nbsp;内存总量：<span
+            id="result-totalMemory"></span>&nbsp;&nbsp;空闲内存量：<span id="result-freeMemory"></span></p>
+    <button onclick="stopcontrol()" id="stopMyButton">stop</button>
+    <div id="result-log" style="height:30em;width:100%;overflow:scroll;background:#EEEEEE;"></div>
+    <img src="/images/512x512.png" alt="">
+</body>
+<script type="text/javascript">
+    var stoppushEventSource;
+    var stoppushAjax;
+    function stopcontrol() {
+        document.getElementById("stopMyButton").innerHTML = "已停止";
+        document.getElementById("stopMyButton").disabled = true;
+        if (stoppushEventSource) {
+            stoppushEventSource.close();
+        }
+        if (stoppushAjax) {
+            clearInterval(stoppushAjax);
+        }
+        console.log("已停止。");
+    }
+
+    (function () {
+        var counter = 0;
+        if (typeof (EventSource) !== "undefined") {
+            console.log("浏览器支持EventSource。");
+            // sse
+            // http://127.0.0.1:80/EinkAppStore/server-status/sse
+            var eventSource = new EventSource('server-status/sse', { withCredentials: false });
+
+            eventSource.onopen = function (event) {
+                console.log("EventSource open");
+            };
+            eventSource.onerror = function (event) {
+                if (event.target.readyState == EventSource.CLOSED) {
+                    console.log("连接关闭，不会重连");
+                } else if (event.target.readyState == EventSource.CONNECTING) {
+                    console.log("正在连接中");
+                } else {
+                    console.error("其他错误");
+                }
+            };
+            eventSource.onmessage = function (event) {
+                console.log(`默认事件, event.data: ${event.data}`);
+                console.log(`默认事件, event.origin: ${event.origin}`);
+                console.log(`默认事件, event.lastEventId: ${event.lastEventId}`);
+            };
+
+            // 自定义事件 connect-time
+            eventSource.addEventListener('connect-time', function (event) {
+                console.log("自定义事件 connect-time, event.data: ", event.data);
+                console.log("自定义事件 connect-time, event.origin: ", event.origin);
+                console.log("自定义事件 connect-time, event.lastEventId: ", event.lastEventId);
+            }, false);
+            // 自定义事件 connect-close
+            eventSource.addEventListener('connect-close', event => {
+                console.log("自定义事件 connect-close, event.lastEventId: ", event.lastEventId);
+                console.log("自定义事件 connect-close, eventSource: ", eventSource);
+                // 停止
+                eventSource.close();
+            }, false);
+            // 自定义事件 server-info
+            eventSource.addEventListener('server-info', event => {
+                var data = JSON.parse(event.data);
+                var code = data.code;
+                var msg = data.msg;
+                var body = data.body;
+                document.getElementById("result-date").innerHTML = body.date;
+                document.getElementById("result-connections").innerHTML = body.connections;
+                document.getElementById("result-requests").innerHTML = body.requests;
+                document.getElementById("result-platform").innerHTML = body.platform;
+                document.getElementById("result-totalMemory").innerHTML = body.totalMemory + "(bytes)";
+                document.getElementById("result-freeMemory").innerHTML = body.freeMemory + "(bytes)";
+            }, false);
+            // 自定义事件 server-log
+            eventSource.addEventListener('server-log', event => {
+                var data = JSON.parse(event.data);
+                var code = data.code;
+                var msg = data.msg;
+                var body = data.body;
+
+                var lastlogid = body.lastlogid;
+                var logList = body.logs;
+                for (var i = 0; i < logList.length; i++) {
+                    document.getElementById("result-log").innerHTML += "<span id='result-log-" + logList[i].id + "'>" + logList[i].logStr + "</span><br>";
+                    document.getElementById("result-log").scrollTop = document.getElementById("result-log").scrollHeight
+                    if (counter % 3 === 0) {
+                        document.getElementById("result-log-" + logList[i].id).style.color = "Orange";
+                    } else if (counter % 3 === 1) {
+                        document.getElementById("result-log-" + logList[i].id).style.color = "DodgerBlue";
+                    } else if (counter % 3 === 2) {
+                        document.getElementById("result-log-" + logList[i].id).style.color = "DeepPink";
+                    }
+                    counter++;
+                }
+            }, false);
+            stoppushEventSource = eventSource;
+        } else {
+            console.log("浏览器不支持EventSource。使用Ajax轮询。");
+            var lastlogid = 0;
+            // Ajax轮询
+            var getXmlHttpRequest = function () {
+                if (window.XMLHttpRequest) {
+                    //  IE7+, Firefox, Chrome, Opera, Safari 浏览器 
+                    return new XMLHttpRequest();
+                } else if (window.ActiveXObject) {
+                    // IE6, IE5 浏览器 
+                    return new ActiveXObject("Microsoft.XMLHttpRequest");
+                }
+            };
+            var xhr = getXmlHttpRequest();
+            xhr.onreadystatechange = function () {
+                if (xhr.readyState === 4 && xhr.status === 200) {
+                    var data = JSON.parse(xhr.responseText);
+                    var code = data.code;
+                    var msg = data.msg;
+                    var body = data.body;
+
+                    if(body.date){
+                        // 渲染 server-info
+                        document.getElementById("result-date").innerHTML = body.date;
+                        document.getElementById("result-connections").innerHTML = body.connections;
+                        document.getElementById("result-requests").innerHTML = body.requests;
+                        document.getElementById("result-platform").innerHTML = body.platform;
+                        document.getElementById("result-totalMemory").innerHTML = body.totalMemory + "(bytes)";
+                        document.getElementById("result-freeMemory").innerHTML = body.freeMemory + "(bytes)";
+                    }
+                    if(body.logs){
+                        // 渲染 server-log
+                        var logList = body.logs;
+                        for (var i = 0; i < logList.length; i++) {
+                            document.getElementById("result-log").innerHTML += "<span id='result-log-" + logList[i].id + "'>" + logList[i].logStr + "</span><br>";
+                            document.getElementById("result-log").scrollTop = document.getElementById("result-log").scrollHeight
+                            if (counter % 3 === 0) {
+                                document.getElementById("result-log-" + logList[i].id).style.color = "Orange";
+                            } else if (counter % 3 === 1) {
+                                document.getElementById("result-log-" + logList[i].id).style.color = "DodgerBlue";
+                            } else if (counter % 3 === 2) {
+                                document.getElementById("result-log-" + logList[i].id).style.color = "DeepPink";
+                            }
+                            counter++;
+                        }
+                        lastlogid = body.lastlogid;
+                    }
+                }
+            };
+
+            //定时，每1秒请求一次。false同步请求
+            var sendGet = function () {
+                // 发送 server-info
+                // http://127.0.0.1/EinkAppStore/server-status/ajax/info
+                xhr.open("get", "server-status/ajax/info", false);
+                xhr.send("");
+
+                // 发送 server-log
+                // http://127.0.0.1/EinkAppStore/server-status/ajax/log?lastlogid=0
+                xhr.open("get", "server-status/ajax/log?lastlogid=" + lastlogid, false);
+                xhr.send("");
+            };
+            var t = setInterval(sendGet, 1000);
+            stoppushAjax = t;
+        }
+    })();
+
+
+
+</script>
+
+</html>

@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+    <meta charset="UTF-8">
+    <title>upload file</title>
+    <link rel="icon" href="images/favicon.ico" type="image/x-icon"/>
+    <style>
+        .tdkey {
+            text-align: right;
+        }
+
+        .tdvalue {
+            width: 40em;
+        }
+
+        #appform input {
+            width: 100%;
+        }
+
+        #appform #btnSave {
+            width: 6em;
+        }
+    </style>
+</head>
+
+<body>
+    <form action="/EinkAppStore/upload/app" method="post" enctype="multipart/form-data" autocomplete="off" accept-charset="utf-8" id="appform">
+        AppList_AppInfo.json
+        <br />
+        <br />
+        <table border="0" cellpadding="0" cellspacing="0">
+            <tr>
+                <td class="tdkey">id:&nbsp;</td>
+                <td class="tdvalue"><input type="text" name="id" placeholder="31"></td>
+            </tr>
+            <tr>
+                <td class="tdkey">name:&nbsp;</td>
+                <td class="tdvalue"><input type="text" name="name" placeholder="掌阅精选"></td>
+            </tr>
+            <tr>
+                <td class="tdkey">icon:&nbsp;</td>
+                <td class="tdvalue"><input type="text" name="icon"
+                        value="http://127.0.0.1:80/EinkAppStore/downloads/icon/CmQUOV-_Vz6EFAJgAAAAABHkPGY809880571.png"
+                        readonly>
+                </td>
+            </tr>
+            <tr>
+                <td class="tdkey"></td>
+                <td class="tdvalue"><input type="file" name='iconFile' accept="image/*" id="iconFile"></td>
+            </tr>
+            <tr>
+                <td class="tdkey">appVersion:&nbsp;</td>
+                <td class="tdvalue"><input type="text" name="appVersion" placeholder="V20.1.2"></td>
+            </tr>
+            <tr>
+                <td class="tdkey">appSize:&nbsp;</td>
+                <td class="tdvalue"><input type="text" name="appSize" placeholder="23.3MB"></td>
+            </tr>
+            <tr>
+                <td class="tdkey">categoryId:&nbsp;</td>
+                <td class="tdvalue"><input type="text" list="categoryId_datalist" name="categoryId" placeholder="2">
+                    <datalist id="categoryId_datalist">
+                        <option value="0">0-全部</option>
+                        <option value="1">1-测试</option>
+                        <option value="2">2-阅读</option>
+                    </datalist>
+                </td>
+            </tr>
+            <tr>
+                <td class="tdkey">appName:&nbsp;</td>
+                <td class="tdvalue"><input type="text" name="appName" placeholder="com.zhangyue.read.iReader.eink"></td>
+            </tr>
+            <tr>
+                <td class="tdkey">appUrl:&nbsp;</td>
+                <td class="tdvalue"><input type="text" name="appUrl"
+                        value="http://127.0.0.1:80/EinkAppStore/downloads/zip/wKgHkGHFm-KEeeJdAAAAABDgnm4824219929.zip"
+                        readonly>
+                </td>
+            </tr>
+            <tr>
+                <td class="tdkey"></td>
+                <td class="tdvalue"><input type="file" name="appUrlFile" accept=".zip,.apk" id="appUrlFile" /></td>
+            </tr>
+            <tr>
+                <td class="tdkey">appDesc:&nbsp;</td>
+                <td class="tdvalue"><input type="text" name="appDesc" placeholder=""></td>
+            </tr>
+            <tr>
+                <td class="tdkey">explain:&nbsp;</td>
+                <td class="tdvalue"><input type="text" name="explain" placeholder=""></td>
+            </tr>
+            <tr>
+                <td class="tdkey"></td>
+                <td class="tdvalue"><input type="submit" value="提交" name="" id="btnSave"></td>
+            </tr>
+        </table>
+    </form>
+
+</body>
+
+</html>
