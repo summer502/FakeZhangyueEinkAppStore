@@ -19,27 +19,32 @@
 | 1     | FaceNote N1s   | 2023-02-20     |
 
 ## iReader 接入私有的应用商店服务端
-> 有2种接入方式，建议选用“配置 HTTP 代理服务器”。  
+> 有2种接入方式，建议选用“网络代理，配置 HTTP 代理服务器”。  
 > ![部署示意图](/docs/jietu/部署示意图.png)
 
 ### 1. 域名拦截，把“ebook.zhangyue.com”指向“私有服务端 ip”  
-私有应用商店服务端仅仅是个应用商店服务端。劫持对“ebook.zhangyue.com”的请求，转给私有应用商店服务端处理（服务端要使用80端口），比如在路由器上添加一条 hosts，如图所示：![域名拦截 ebook.zhangyue.com](./docs/jietu/在局域网内拦截域名.png)
+私有应用商店服务端仅仅是个应用商店服务端。  
+劫持对“ebook.zhangyue.com”的请求，转给私有应用商店服务端处理（服务端要使用80端口），比如在路由器上添加一条 hosts，如图所示：![域名拦截 ebook.zhangyue.com](./docs/jietu/在局域网内拦截域名.png)
 
 ### 2. 网络代理，使用 HTTP 代理服务器，配置代理服务器的主机名为“私有服务端 ip”，端口为“80” 
-私有应用商店服务端作为应用商店服务端和网络代理。在 iReader 的 WLAN 处选择对应的 wifi 名称，长按会弹出详情窗口，在高级选项里面配置代理，这样设备发出的所有访问请求都会转给私有服务端，私有服务端会把关于应用商店的请求进行拦截处理，其他请求则作正向代理处理，如图所示：![在 iReader 的 WLAN 处配置使用 HTTP 代理](./docs/jietu/在设备wlan上配置HTTP代理服务器.jpg)
+私有应用商店服务端作为应用商店服务端和网络代理。  
+在 iReader 的 WLAN 处选择对应的 wifi 名称，长按会弹出详情窗口，在高级选项里面配置代理，这样设备发出的所有访问请求都会转给私有服务端，私有服务端会把关于应用商店的请求进行拦截处理，其他请求则作正向代理处理，如图所示：![在 iReader 的 WLAN 处配置使用 HTTP 代理](./docs/jietu/在设备wlan上配置HTTP代理服务器.jpg)
 
 ## 搭建服务端
 ### 1. 使用 nginx 搭建
 基于`nginx`发布的 http 服务端  
 运行环境：[下载 nginx](https://nginx.org/en/download.html)  
-启动方式：[部署说明](server-nginx8zyEinkAppStore/README.md)  
+目录：`server-nginx8zyEinkAppStore`  
+部署说明：[部署nginx8zyEinkAppStore](server-nginx8zyEinkAppStore/README.md)  
 
 ### 2. 使用 node.js 搭建
 基于`Node.js`编写的 http 服务端  
 运行环境：[下载 Node.js](https://nodejs.org/en/download/)  
-启动方式：[部署说明](server-JS8zyEinkAppStore/README.md)  
+目录：`server-JS8zyEinkAppStore`  
+部署说明：[部署JS8zyEinkAppStore](server-JS8zyEinkAppStore/README.md)  
 
 ### 3. 使用 java 搭建
 用`spring boot`编写的 http 服务端  
 运行环境：[下载 java](https://www.java.com/zh-CN/)  
-启动方式：[部署说明](server-J8zyEinkAppStore/README.md)  
+目录：`server-J8zyEinkAppStore`  
+部署说明：[部署J8zyEinkAppStore](server-J8zyEinkAppStore/README.md)  
