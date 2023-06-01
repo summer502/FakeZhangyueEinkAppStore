@@ -1,6 +1,6 @@
 ---
 layout: default
-title: About Me
+title: FakeZhangyueEinkAppStore
 permalink: /about
 ---
 
@@ -8,24 +8,27 @@ permalink: /about
 {{page.title}}
 </div>
 <div class="content">
-<img class="profile-picture" src="{{site.baseurl}}/assets/downloads/profile.png">
+
 </div>
-I'm Dilbert. I've been working as a Software Engineer for over 30 years. I like to innovate to solve challenging problems using technology. I work with a great Engineering team, but we have a good-for-nothing and clueless manager, who can be replaced with a monkey and the change would be for the better.
 
-On a personal front, I live with two amazing pets - Dogbert and Ratbert, and three dinasours - Bob, Rex and Dawn - who're hiding from the rest of the world. I'm single and have few friends due to my poor social skills, but I usually spend my time playing with computers and technology.
+搭建一个伪掌阅 iReader 应用商店服务端，给设备安装第三方 app 应用。同时服务端也是个 http(s) 代理服务器，实现 http 代理和http connect 隧道代理。  
 
-### Life Advice
-Here are a few things I've learned over the years,
-> An optimist is simply a pessimist with no job experience.
+### 准备材料
+1. app的名称（name）
+2. app的全局唯一名称，一般使用包路径（appName）
+3. app的图标（icon）
+4. app的安卓系统安装包（*.apk格式）
+5. app的版本（appVersion）
+6. app的包大（小appSize）
 
-> All of your co-workers are fools. You must learn to pity and tolerate them.
+### 制作 app 安装包
+把安卓系统安装包apk文件压缩成zip文件
 
-> There are very few problems that can't be solved through a suitable application of high explosives.
+### 修改json文件配置 app 数据
 
-### Publications
-1. Dilbert, Ratbert: "Effects of having a dog and a dinasaur in the same house", _Journal of Wierd Studies_
-2. Alice, Dilbert, Wally: "Efficient ways to deal with a dumb manager", _Conference of Frustrated Engineers_
+### 下载服务端，更新 app 配置数据
 
-### Contact Me
-No thanks, I have enough problems of my own to deal with.
+### 启动应用商店服务端，验证服务正常
+
+### 配置设备的网络代理为使用 HTTP 代理服务器
 
