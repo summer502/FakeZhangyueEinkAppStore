@@ -30,7 +30,7 @@ navbar:
   - name: "About"
     link: "about"
   - name: "Resume"
-    absolute-link: "https://rahul-bothra.github.io/CV.pdf"
+    absolute-link: "https://github.com/summer502"
     target: '_blank'
 
 # 底部

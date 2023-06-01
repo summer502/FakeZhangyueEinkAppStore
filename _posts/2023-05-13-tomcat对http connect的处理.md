@@ -74,15 +74,16 @@ Connection: close
 
 可以看到 Tomcat 是在方法 org.apache.catalina.connector.CoyoteAdapter#postParseRequest 中对 CONNECT 作判断处理，响应了状态码501。  
 ```java
-// CoyoteAdapter
+// CoyoteAdapter.postParseRequest()
 
         // Filter CONNECT method
         if (req.method().equalsIgnoreCase("CONNECT")) {
             response.sendError(HttpServletResponse.SC_NOT_IMPLEMENTED, sm.getString("coyoteAdapter.connect"));
         } else {
 ```
+
 ```java
-// HttpServletResponse
+// HttpServletResponse.SC_NOT_IMPLEMENTED
 
     /**
      * Status code (501) indicating the HTTP server does not support the functionality needed to fulfill the request.
